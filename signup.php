@@ -42,7 +42,7 @@
             
             
             <div id="main">
-                <form action="/action_page.php" method="">
+                <form method="POST" action="signup.php" >
                    <br>
                     <label for="firstname">First Name</label><br>
                     <input type="text" id="firstname" name="firstname" placeholder="Your name..">
@@ -96,3 +96,30 @@
         </div>
     </body>
 </html>
+
+<?php
+	
+	if (isset($_POST['submit'])) {
+		$firstname = $_POST['firstname'];
+		$surname = $_POST['surname'];
+		$username = $_POST['username'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $address = $_POST['address'];
+		
+        //Connect to db
+        $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+        $query = "insert into books (clientName, clientSurname, clientUsername, clientEmail, clientPhoneNumber, clientAddress, clientPassword)
+                    values('$firstname', '$surname', '$username', '$email', '$phone', '$address', '$password')";
+        echo "<br>$query<br>";
+        if(mysqli_query($conn, $query)) { 
+            echo mysqli_affected_rows($conn);            
+        }
+        else
+            echo "Error: ".mysqli_error($conn);
+			
+		}
+						
+	
+?>
