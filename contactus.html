@@ -17,13 +17,13 @@
                   <div class="collapse navbar-collapse" id="navbarNav">
                     <img src="images/smalllogo.png" id="logo">
                     <ul class="navbar-nav ml-auto">
-                      <li class="nav-item active">
+                      <li class="nav-item ">
                         <a class="nav-link" href="index.html">Home | </a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item ">
                         <a class="nav-link" href="aboutus.html">About Us |</a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item active">
                         <a class="nav-link" href="contactus.html">Contact Us |</a>
                       </li>
                       <li class="nav-item">
@@ -37,45 +37,31 @@
                 </nav>
             </header>
             <br><br>
-            <h1><center>Order your food here: </center></h1>
+            <h1><center>Contact us </center></h1>
+            <h6><center>Via filling up this form:</center></h6>
+            
             <div id="main">
-              
-                 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-danger active">All</button>
-                  <button type="button" class="btn btn-danger">Delivery</button>
-                  <button type="button" class="btn btn-danger">Pickup</button>
-                </div>
-                
-                <br><br><br><br>
-                <h5><center>Select Your Location</center></h5>
-                
-                <div class="dropdown">
-                  <a class="btn btn-danger btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select Your Location...</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Attard</a>
-                      <a class="dropdown-item" href="#">Qormi</a>
-                      <a class="dropdown-item" href="#">Sliema</a>
-                      <a class="dropdown-item" href="#">Valletta</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">All</a>
-                  </div>
-                </div>
-                
-                <br><br><br><br>
-                <h5><center>OR </center></h5>
-                <div class="dropdown">
-                  <a class="btn btn-danger btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select The Restaurant...</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Ocean Basket</a>
-                      <a class="dropdown-item" href="#">Okurama</a>
-                      <a class="dropdown-item" href="#">Gate of India</a>
-                      <a class="dropdown-item" href="#">Pizza Hut</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">All</a>
-                  </div>
-                </div>
+                <form action="/action_page.php" method="">
+                    <br>
+                    <label for="firstname">First Name</label><br>
+                    <input type="text" id="firstname" name="firstname" placeholder="Your name..">
+                    <br>
+                    <label for="lastname">Last Name</label><br>
+                    <input type="text" id="lastname" name="lastname" placeholder="Your last name..">
+                    <br>
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" name="email" placeholder="Your email..">
+                    <br>
+                    <label for="topic">Topic</label><br>
+                    <input type="text" id="topic" name="topic" placeholder="Your topic..">
+                    <br>
+                    <label for="subject">Subject</label><br>
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                    <br>
+                    <input type="submit" value="Submit"><br><br>
+                    <input type="reset" value="Reset"><br><br>
+                </form>
+                 
                
                 <div class="clear"></div>
             </div>
@@ -92,7 +78,7 @@
                       <li class="nav-item">
                         <a class="nav-link" href="faq.html"> FAQ |</a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item active">
                         <a class="nav-link" href="contactus.html">Contact Us </a>
                       </li>
                     </ul>

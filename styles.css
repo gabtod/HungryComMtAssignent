@@ -1,0 +1,65 @@
+#logo {
+    float:left;
+}
+
+nav {
+    font-size: 20px;
+}
+
+footer, .push {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 100px;
+}
+
+.clear {
+    clear:both;
+}
+
+header, footer, #main, h5 {
+    background-color: #F8F8F8;
+    opacity: 0.95;
+    border-radius: 20px;
+    margin: 10px;
+}
+#container {
+    background-image: url("images/one.png");
+    min-height: 800px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: -100px;
+}
+
+.dropdown, .btn-group{
+    position: relative;
+    float: left;
+    top: 50%;
+    left: 35%;
+    margin-top: 10px;
+    margin-bottom:30px;
+}
+
+#main {
+    width: 60%;
+    margin:auto;
+}
+
+
+/**Style for Contact Us **/
+
+input[type=text], input[type=password],input[type=email], input[type=reset], input[type=submit], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+form {
+    width: 80%;
+    margin: auto;
+}

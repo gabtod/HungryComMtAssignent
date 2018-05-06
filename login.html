@@ -17,16 +17,16 @@
                   <div class="collapse navbar-collapse" id="navbarNav">
                     <img src="images/smalllogo.png" id="logo">
                     <ul class="navbar-nav ml-auto">
-                      <li class="nav-item active">
+                      <li class="nav-item ">
                         <a class="nav-link" href="index.html">Home | </a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item ">
                         <a class="nav-link" href="aboutus.html">About Us |</a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item ">
                         <a class="nav-link" href="contactus.html">Contact Us |</a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item active">
                         <a class="nav-link" href="login.html">Log in | </a>
                       </li>
                       <li class="nav-item">
@@ -37,45 +37,25 @@
                 </nav>
             </header>
             <br><br>
-            <h1><center>Order your food here: </center></h1>
+            <h1><center>Login To Hungry.com.mt </center></h1>
+            
+            
             <div id="main">
-              
-                 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-danger active">All</button>
-                  <button type="button" class="btn btn-danger">Delivery</button>
-                  <button type="button" class="btn btn-danger">Pickup</button>
-                </div>
-                
-                <br><br><br><br>
-                <h5><center>Select Your Location</center></h5>
-                
-                <div class="dropdown">
-                  <a class="btn btn-danger btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select Your Location...</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Attard</a>
-                      <a class="dropdown-item" href="#">Qormi</a>
-                      <a class="dropdown-item" href="#">Sliema</a>
-                      <a class="dropdown-item" href="#">Valletta</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">All</a>
-                  </div>
-                </div>
-                
-                <br><br><br><br>
-                <h5><center>OR </center></h5>
-                <div class="dropdown">
-                  <a class="btn btn-danger btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select The Restaurant...</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Ocean Basket</a>
-                      <a class="dropdown-item" href="#">Okurama</a>
-                      <a class="dropdown-item" href="#">Gate of India</a>
-                      <a class="dropdown-item" href="#">Pizza Hut</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">All</a>
-                  </div>
-                </div>
+                <form action="/action_page.php" method="">
+                    <br>
+                    <label for="username">Username </label><br>
+                    <input type="text" id="username" name="username" placeholder="Username..">
+                    <br><br>
+                    <label for="password">Password </label><br>
+                    <input type="password" id="password" name="password" placeholder="Password..">
+                    <br><br>
+                    
+                    New to Hungry.com.mt? <a href="signup.html">Sign up and start your order immediatrely</a>
+                    <br><br>
+                    <input type="submit" value="Login"><br><br>
+                    <input type="reset" value="Reset"><br><br>
+                </form>
+                 
                
                 <div class="clear"></div>
             </div>
