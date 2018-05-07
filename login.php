@@ -20,7 +20,7 @@
                     <img src="images/smalllogo.png" id="logo">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item ">
-                        <a class="nav-link" href="index.html">Home | </a>
+                        <a class="nav-link" href="index.php">Home | </a>
                       </li>
                       <li class="nav-item ">
                         <a class="nav-link" href="aboutus.html">About Us |</a>
@@ -82,7 +82,7 @@
 </html>
 
 <?php
-        if (isset($_POST['username'])) {
+        /*if (isset($_POST['username'])) {
             //echo 'good till here';
 		$username = $_POST['username'];
         $password = $_POST['password'];}
@@ -103,5 +103,5 @@
             }
             else {
                //echo "not logged";
-            }
+            }*/
 ?>
