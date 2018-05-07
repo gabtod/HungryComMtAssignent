@@ -1,8 +1,10 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hungry.com.mt - Main Page</title>
-        
+        <title>Log in </title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
@@ -23,11 +25,11 @@
                       <li class="nav-item ">
                         <a class="nav-link" href="aboutus.html">About Us |</a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item ">
                         <a class="nav-link" href="contactus.html">Contact Us |</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="login.html">Log in | </a>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="login.php">Log in | </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="signup.php">Sign up  </a>
@@ -37,22 +39,22 @@
                 </nav>
             </header>
             <br><br>
-            <h1><center>Help: </center></h1>
+            <h1><center>Login To Hungry.com.mt </center></h1>            
             <div id="main">
-                <span><b>Problems with your order?</b></span><br>
-                <p>If you have problems with your order which need immediate assistance, you can contact the restaurant from which you have ordered your food. A phone number and a email address of the restaurant is displayed on your confirmation page. You can contact us as well trough the <a href="contactus.html">contact us page. </a></p>
-                <span><b>How to cancel an order?</b></span>
-                <p>To cancel an order, you have to immediately contact the restaurant which you have ordered from (within 10 mins of the confirmation f your order). In case of card payment, you have to <a href="contactus.html">contact us</a> for the cancellation and we will recover your money back.</p>
-                <span><b>How to talk to a customer representitive of Hungry.com.mt?</b></span>
-                <p>You can contact us via our <a href="contactus.html">contact us</a> page or you can call our customer care support on +356 12345678 from Monday to Saturday from 11:00 to 23:00.</p>
-                <span><b>How can I colaborate with Hungry.com.mt?</b></span>
-                <p>You can contact us via our <a href="contactus.html">contact us</a> page or send an email to colaborate@hungrycommt.com</p>
-                <span><b>How can I sponsor Hungry.com.mt? </b></span>
-                <p>You can contact us via our <a href="contactus.html">contact us</a> page or send an email to sponsor@hungrycommt.com.</p>
-                
-               
-                 
-               
+                <form action="loginPHPonly.php" method="POST">
+                    <br>
+                    <label for="username">Username </label><br>
+                    <input type="text" id="username" name="username" placeholder="Username..">
+                    <br><br>
+                    <label for="password">Password </label><br>
+                    <input type="password" id="password" name="password" placeholder="Password..">
+                    <br><br>
+                    
+                    New to Hungry.com.mt? <a href="signup.html">Sign up and start your order immediatrely</a>
+                    <br><br>
+                    <input type="submit" value="Login"><br><br>
+                    <input type="reset" value="Reset"><br><br>
+                </form>           
                 <div class="clear"></div>
             </div>
             <div class="push"></div>
@@ -62,7 +64,7 @@
                   <div class="collapse navbar-collapse" id="navbarNav">
                    Copyright &copy; 2018 Gabriela Todorova. Hungry.com.mt. All Rights Reserved
                     <ul class="navbar-nav ml-auto">
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <a class="nav-link" href="help.html">Help | </a>
                       </li>
                       <li class="nav-item">
@@ -74,10 +76,32 @@
                     </ul>
                   </div>
                 </nav>
-                
             </footer>
-        </div>
-        
-        
+        </div>        
     </body>
 </html>
+
+<?php
+        if (isset($_POST['username'])) {
+            //echo 'good till here';
+		$username = $_POST['username'];
+        $password = $_POST['password'];}
+       
+		
+        $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+        $query = "select clientUsername, clientPassword from client where  clientUsername='".$username."' and clientPassword = '".$password."';";
+        //echo "<br>$query<br>";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
+        
+            if (mysqli_num_rows($result) > 0) {
+                $_SESSION['username'] =$username;
+                $_SESSION['password'] = $password;
+                //echo "Welcome";
+                header("Location: ./index.html");
+                //exit();
+            }
+            else {
+               //echo "not logged";
+            }
+?>

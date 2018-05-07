@@ -99,9 +99,10 @@
 
 <?php
 	
-	if (isset($_POST['submit'])) {
+	if (isset($_POST['firstname'])) {
+        echo 'getting inside if';
 		$firstname = $_POST['firstname'];
-		$surname = $_POST['surname'];
+		$surname = $_POST['lastname'];
 		$username = $_POST['username'];
         $password = $_POST['password'];
         $email = $_POST['email'];
@@ -110,7 +111,7 @@
 		
         //Connect to db
         $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
-        $query = "insert into books (clientName, clientSurname, clientUsername, clientEmail, clientPhoneNumber, clientAddress, clientPassword)
+        $query = "insert into client (clientName, clientSurname, clientUsername, clientEmail, clientPhoneNumber, clientAddress, clientPassword)
                     values('$firstname', '$surname', '$username', '$email', '$phone', '$address', '$password')";
         echo "<br>$query<br>";
         if(mysqli_query($conn, $query)) { 
