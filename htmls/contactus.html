@@ -18,55 +18,47 @@
                     <img src="images/smalllogo.png" id="logo">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item ">
-                        <a class="nav-link" href="index.php">Home | </a>
+                        <a class="nav-link" href="index.html">Home | </a>
                       </li>
                       <li class="nav-item ">
-                        <a class="nav-link" href="aboutus.php">About Us |</a>
-                      </li>
-                      <li class="nav-item ">
-                        <a class="nav-link" href="contactus.php">Contact Us |</a>
-                      </li>
-                      <li class="nav-item ">
-                        <a class="nav-link" href="login.php">Log in | </a>
+                        <a class="nav-link" href="aboutus.html">About Us |</a>
                       </li>
                       <li class="nav-item active">
-                        <a class="nav-link" href="signup.php">Sign up  </a>
+                        <a class="nav-link" href="contactus.html">Contact Us |</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="login.html">Log in | </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Sign up  </a>
                       </li>
                     </ul>
                   </div>
                 </nav>
             </header>
             <br><br>
-            <h1><center>Registration Form </center></h1>
-            <h6><center>Fill up all required fields:</center></h6>
-            
+            <h1><center>Contact us </center></h1>
+            <h6><center>Via filling up this form:</center></h6>
             
             <div id="main">
-                <form method="POST" action="signup.php" >
-                   <br>
+                <form action="/action_page.php" method="">
+                    <br>
                     <label for="firstname">First Name</label><br>
                     <input type="text" id="firstname" name="firstname" placeholder="Your name..">
                     <br>
                     <label for="lastname">Last Name</label><br>
                     <input type="text" id="lastname" name="lastname" placeholder="Your last name..">
                     <br>
-                    <label for="username">Username</label><br>
-                    <input type="text" id="username" name="username" placeholder="Your username..">
-                    <br>
-                    <label for="password"> Password</label><br>
-                    <input type="password" id="password" name="password" placeholder="Your password..">
-                    <br>
                     <label for="email">Email</label><br>
                     <input type="email" id="email" name="email" placeholder="Your email..">
                     <br>
-                    <label for="phone">Phone</label><br>
-                    <input type="text" id="phone" name="phone" placeholder="Your phone number..">
+                    <label for="topic">Topic</label><br>
+                    <input type="text" id="topic" name="topic" placeholder="Your topic..">
                     <br>
-                    <label for="Address">Address</label><br>
-                    <textarea id="address" name="address" placeholder="Your address here.." style="height:100px"></textarea>
-                    <br><br>
-                    <input type="checkbox" name="terms"> I agree with the Hungry.com.mt <a href="tandc.php"> T&amp;C</a>  <br><br>
-                    <input type="submit" value="Login"><br><br>
+                    <label for="subject">Subject</label><br>
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                    <br>
+                    <input type="submit" value="Submit"><br><br>
                     <input type="reset" value="Reset"><br><br>
                 </form>
                  
@@ -81,46 +73,21 @@
                    Copyright &copy; 2018 Gabriela Todorova. Hungry.com.mt. All Rights Reserved
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item">
-                        <a class="nav-link" href="help.php">Help | </a>
+                        <a class="nav-link" href="help.html">Help | </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="faq.php"> FAQ |</a>
+                        <a class="nav-link" href="faq.html"> FAQ |</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="contactus.php">Contact Us </a>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="contactus.html">Contact Us </a>
                       </li>
                     </ul>
                   </div>
                 </nav>
+                
             </footer>
         </div>
+        
+        
     </body>
 </html>
-
-<?php
-	
-	if (isset($_POST['firstname'])) {
-        echo 'getting inside if';
-		$firstname = $_POST['firstname'];
-		$surname = $_POST['lastname'];
-		$username = $_POST['username'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $address = $_POST['address'];
-		
-        //Connect to db
-        $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
-        $query = "insert into client (clientName, clientSurname, clientUsername, clientEmail, clientPhoneNumber, clientAddress, clientPassword)
-                    values('$firstname', '$surname', '$username', '$email', '$phone', '$address', '$password')";
-        echo "<br>$query<br>";
-        if(mysqli_query($conn, $query)) { 
-            echo mysqli_affected_rows($conn);            
-        }
-        else
-            echo "Error: ".mysqli_error($conn);
-			
-		}
-						
-	
-?>

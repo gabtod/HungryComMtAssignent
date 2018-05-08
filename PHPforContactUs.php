@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>  
 <head> <!--head information-->
@@ -10,13 +14,22 @@
 	require($_SERVER['DOCUMENT_ROOT'].'/phpmailer/PHPMailerAutoload.php'); #Superglobal
 	
     //if (isset($_POST['email']))
-    
-	$username = $_POST['email'];
+    if (isset($_SESSION['email'])) {
+        $username = $_SESSION['email'];
+    } else {
+	$username = $_POST['email']; }
+    //$username = $_POST['email'];
 	$pwd= $_POST['password'];
     $subject = $_POST['subject'];
     #$emailTo = $_POST['emailTo']; #later
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
+    if (isset($_SESSION['name'])) {
+        $firstname = $_SESSION['name'];
+    } else {$firstname = $_POST['firstname'];}
+    //$firstname = $_POST['firstname'];
+    if (isset($_SESSION['surname'])) {
+        $lastname = $_SESSION['surname'];
+    } else {$lastname = $_POST['lastname'];}
+    //$lastname = $_POST['lastname'];
     $topic = $_POST['topic'];
 	$mail = new PHPMailer();
 	$mail->isSMTP();
@@ -43,7 +56,7 @@
 		echo 'Mailer error: ' . $mail->ErrorInfo;
 	} else {
 		//echo 'Message has been sent.';
-        header('Location: thankyou.html');
+        header('Location: thankyou.php');
 	}	
     
 ?>	

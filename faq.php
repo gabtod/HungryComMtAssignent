@@ -1,4 +1,4 @@
-<?php
+<?php 
     session_start();
 ?>
 
@@ -27,10 +27,10 @@
                       <li class="nav-item ">
                         <a class="nav-link" href="aboutus.php">About Us |</a>
                       </li>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us |</a>
                       </li>
-                       <?php 
+                     <?php 
                             if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
                                 
                                 echo "<li class='nav-item'>
@@ -55,56 +55,20 @@
                 </nav>
             </header>
             <br><br>
-            <h1><center>Contact us </center></h1>
-            <h6><center>Via filling up this form:</center></h6>
-            
+            <h1><center>Frequently Asked Questions: </center></h1>
             <div id="main">
-                <form action="PHPforContactUs.php" method="POST">
-                    <br>
-                    
-                                        
-                     <?php 
-                            if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
-                                
-                                echo "<label for='firstname'>First Name</label><br>
-                    <input type='text' id='firstname' name='firstname' value='".$_SESSION['name']."' disabled>
-                    <br>
-                    <label for='lastname'>Last Name</label><br>
-                    <input type='text' id='lastname' name='lastname' value='".$_SESSION['surname']."' disabled>
-                    <br>
-                    <label for='email'>Email</label><br>
-                    <input type='email' id='email' name='email' value='".$_SESSION['email']."' disabled>
-                    <br>
-                           <label for='password'>Password</label><br>
-                    <input type='password' id='password' name='password' placeholder='Your email password..'>
-                    <br>";
-                                
-                            }
-                        else { 
-                            $_SESSION =array();
-                            echo "<label for='firstname'>First Name</label><br>
-                    <input type='text' id='firstname' name='firstname' placeholder='Your name..'>
-                    <br>
-                    <label for='lastname'>Last Name</label><br>
-                    <input type='text' id='lastname' name='lastname' placeholder='Your last name..'>
-                    <br>
-                    <label for='email'>Email</label><br>
-                    <input type='email' id='email' name='email' placeholder='Your email..'>
-                    <br>
-                            <label for='password'>Password</label><br>
-                    <input type='password' id='password' name='password' placeholder='Your email password..'>
-                    <br>";
-                        }                        
-                        ?>
-                    <label for='topic'>Topic</label><br>
-                    <input type='text' id='topic' name='topic' placeholder='Your topic..'>
-                    <br>
-                    <label for="subject">Subject</label><br>
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                    <br>
-                    <input type="submit" value="Submit"><br><br>
-                    <input type="reset" value="Reset"><br><br>
-                </form>
+                <span><b>Can I make an order without an account?</b></span><br>
+                <p>No, you have to register to make an order, or to login to your account.</p>
+                <span><b>How can I pay?</b></span>
+                <p>The payment can be done by cash when you pickup or get your food delivered. Or else, you can use card payment. We accepted MaestoCard, Visa</p>
+                <span><b>I have ordered something by mistake. Can I cancel it?</b></span>
+                <p>You have to immediately contact the restaurant you have ordered from, and if they have not started preparing your order, you would get a refund, however if they have started preparing your order, we cannot give you any refund.</p>
+                <span><b>When can I order food?</b></span>
+                <p>Hungry.com.mt is always available however you can pickup/ get your food delivered every day from 12:00 till 23:00. </p>
+                <span><b>My order has not arrived yet. What should I do? </b></span>
+                <p>You can contact us via our <a href="contactus.html">contact us</a> page, call us on +356 12345678 or contact the restaurant you have ordered from.</p>
+                
+               
                  
                
                 <div class="clear"></div>
@@ -116,13 +80,13 @@
                   <div class="collapse navbar-collapse" id="navbarNav">
                    Copyright &copy; 2018 Gabriela Todorova. Hungry.com.mt. All Rights Reserved
                     <ul class="navbar-nav ml-auto">
-                      <li class="nav-item">
+                      <li class="nav-item ">
                         <a class="nav-link" href="help.php">Help | </a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item active">
                         <a class="nav-link" href="faq.php"> FAQ |</a>
                       </li>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us </a>
                       </li>
                     </ul>

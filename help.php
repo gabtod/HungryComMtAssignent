@@ -1,4 +1,4 @@
-<?php
+<?php 
     session_start();
 ?>
 
@@ -27,10 +27,10 @@
                       <li class="nav-item ">
                         <a class="nav-link" href="aboutus.php">About Us |</a>
                       </li>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us |</a>
                       </li>
-                       <?php 
+                      <?php 
                             if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
                                 
                                 echo "<li class='nav-item'>
@@ -55,56 +55,20 @@
                 </nav>
             </header>
             <br><br>
-            <h1><center>Contact us </center></h1>
-            <h6><center>Via filling up this form:</center></h6>
-            
+            <h1><center>Help: </center></h1>
             <div id="main">
-                <form action="PHPforContactUs.php" method="POST">
-                    <br>
-                    
-                                        
-                     <?php 
-                            if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
-                                
-                                echo "<label for='firstname'>First Name</label><br>
-                    <input type='text' id='firstname' name='firstname' value='".$_SESSION['name']."' disabled>
-                    <br>
-                    <label for='lastname'>Last Name</label><br>
-                    <input type='text' id='lastname' name='lastname' value='".$_SESSION['surname']."' disabled>
-                    <br>
-                    <label for='email'>Email</label><br>
-                    <input type='email' id='email' name='email' value='".$_SESSION['email']."' disabled>
-                    <br>
-                           <label for='password'>Password</label><br>
-                    <input type='password' id='password' name='password' placeholder='Your email password..'>
-                    <br>";
-                                
-                            }
-                        else { 
-                            $_SESSION =array();
-                            echo "<label for='firstname'>First Name</label><br>
-                    <input type='text' id='firstname' name='firstname' placeholder='Your name..'>
-                    <br>
-                    <label for='lastname'>Last Name</label><br>
-                    <input type='text' id='lastname' name='lastname' placeholder='Your last name..'>
-                    <br>
-                    <label for='email'>Email</label><br>
-                    <input type='email' id='email' name='email' placeholder='Your email..'>
-                    <br>
-                            <label for='password'>Password</label><br>
-                    <input type='password' id='password' name='password' placeholder='Your email password..'>
-                    <br>";
-                        }                        
-                        ?>
-                    <label for='topic'>Topic</label><br>
-                    <input type='text' id='topic' name='topic' placeholder='Your topic..'>
-                    <br>
-                    <label for="subject">Subject</label><br>
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                    <br>
-                    <input type="submit" value="Submit"><br><br>
-                    <input type="reset" value="Reset"><br><br>
-                </form>
+                <span><b>Problems with your order?</b></span><br>
+                <p>If you have problems with your order which need immediate assistance, you can contact the restaurant from which you have ordered your food. A phone number and a email address of the restaurant is displayed on your confirmation page. You can contact us as well trough the <a href="contactus.html">contact us page. </a></p>
+                <span><b>How to cancel an order?</b></span>
+                <p>To cancel an order, you have to immediately contact the restaurant which you have ordered from (within 10 mins of the confirmation f your order). In case of card payment, you have to <a href="contactus.html">contact us</a> for the cancellation and we will recover your money back.</p>
+                <span><b>How to talk to a customer representitive of Hungry.com.mt?</b></span>
+                <p>You can contact us via our <a href="contactus.html">contact us</a> page or you can call our customer care support on +356 12345678 from Monday to Saturday from 11:00 to 23:00.</p>
+                <span><b>How can I colaborate with Hungry.com.mt?</b></span>
+                <p>You can contact us via our <a href="contactus.html">contact us</a> page or send an email to colaborate@hungrycommt.com</p>
+                <span><b>How can I sponsor Hungry.com.mt? </b></span>
+                <p>You can contact us via our <a href="contactus.html">contact us</a> page or send an email to sponsor@hungrycommt.com.</p>
+                
+               
                  
                
                 <div class="clear"></div>
@@ -116,13 +80,13 @@
                   <div class="collapse navbar-collapse" id="navbarNav">
                    Copyright &copy; 2018 Gabriela Todorova. Hungry.com.mt. All Rights Reserved
                     <ul class="navbar-nav ml-auto">
-                      <li class="nav-item">
+                      <li class="nav-item active">
                         <a class="nav-link" href="help.php">Help | </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="faq.php"> FAQ |</a>
                       </li>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us </a>
                       </li>
                     </ul>

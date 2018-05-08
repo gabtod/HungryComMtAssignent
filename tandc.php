@@ -1,4 +1,4 @@
-<?php
+<?php 
     session_start();
 ?>
 
@@ -27,10 +27,10 @@
                       <li class="nav-item ">
                         <a class="nav-link" href="aboutus.php">About Us |</a>
                       </li>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us |</a>
                       </li>
-                       <?php 
+                     <?php 
                             if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
                                 
                                 echo "<li class='nav-item'>
@@ -55,57 +55,19 @@
                 </nav>
             </header>
             <br><br>
-            <h1><center>Contact us </center></h1>
-            <h6><center>Via filling up this form:</center></h6>
-            
+            <h1><center>Terms and Conditions: </center></h1>
             <div id="main">
-                <form action="PHPforContactUs.php" method="POST">
-                    <br>
-                    
-                                        
-                     <?php 
-                            if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
-                                
-                                echo "<label for='firstname'>First Name</label><br>
-                    <input type='text' id='firstname' name='firstname' value='".$_SESSION['name']."' disabled>
-                    <br>
-                    <label for='lastname'>Last Name</label><br>
-                    <input type='text' id='lastname' name='lastname' value='".$_SESSION['surname']."' disabled>
-                    <br>
-                    <label for='email'>Email</label><br>
-                    <input type='email' id='email' name='email' value='".$_SESSION['email']."' disabled>
-                    <br>
-                           <label for='password'>Password</label><br>
-                    <input type='password' id='password' name='password' placeholder='Your email password..'>
-                    <br>";
-                                
-                            }
-                        else { 
-                            $_SESSION =array();
-                            echo "<label for='firstname'>First Name</label><br>
-                    <input type='text' id='firstname' name='firstname' placeholder='Your name..'>
-                    <br>
-                    <label for='lastname'>Last Name</label><br>
-                    <input type='text' id='lastname' name='lastname' placeholder='Your last name..'>
-                    <br>
-                    <label for='email'>Email</label><br>
-                    <input type='email' id='email' name='email' placeholder='Your email..'>
-                    <br>
-                            <label for='password'>Password</label><br>
-                    <input type='password' id='password' name='password' placeholder='Your email password..'>
-                    <br>";
-                        }                        
-                        ?>
-                    <label for='topic'>Topic</label><br>
-                    <input type='text' id='topic' name='topic' placeholder='Your topic..'>
-                    <br>
-                    <label for="subject">Subject</label><br>
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                    <br>
-                    <input type="submit" value="Submit"><br><br>
-                    <input type="reset" value="Reset"><br><br>
-                </form>
-                 
+                <p>Hungry.com.mt is using sessions/cookies. Not for commercial purposes.</p>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non tristique elit, ac consectetur elit. Curabitur ut lacus eros. Integer malesuada eros vestibulum, tristique dui quis, consequat nunc. Cras consectetur dui id justo lacinia, eu eleifend risus congue. Mauris et porttitor dolor, id pretium velit. Sed eros tortor, pretium sed arcu vel, volutpat hendrerit dolor. Nunc feugiat ac ligula at convallis. Morbi odio libero, bibendum vel mattis eget, sollicitudin ac nulla. Nullam in mauris at erat imperdiet malesuada. Mauris sit amet velit dignissim, laoreet mauris eget, hendrerit enim. </p>
+
+                <p>Morbi vel quam faucibus, placerat lorem ut, interdum ex. Etiam quis erat sodales, rhoncus augue non, porta orci. Etiam vel velit varius, consequat nunc id, tincidunt nisi. Nullam dictum magna ac justo commodo rhoncus. Fusce condimentum pellentesque tincidunt. Integer facilisis non lectus quis luctus. Etiam eget dui pellentesque, luctus nulla ac, auctor justo. Maecenas risus lorem, sagittis in justo non, tempus laoreet ipsum. Proin eget nisi vitae mi ultricies placerat. Donec eget egestas nibh, vel sagittis orci. Praesent feugiat sagittis diam quis sodales. Nam sed mollis mi, sed porta ipsum. Donec ac congue libero.</p>
+                
+                <p>Aliquam erat volutpat. Nulla eget placerat purus. Proin sed dapibus elit. Quisque id fringilla eros, non facilisis sem. Sed at bibendum tortor. Aliquam ullamcorper ante mauris, sed laoreet sapien convallis ut. Nulla dapibus enim nec quam vulputate faucibus. Cras dictum eget ligula sit amet fringilla. Aliquam ut dignissim mi. Etiam sodales neque posuere ex consequat scelerisque. Praesent ac posuere purus, in fringilla nisl.</p>
+                
+                <p>Aenean a nibh leo. Vestibulum vel neque lobortis, placerat felis ac, scelerisque felis. Nulla tincidunt aliquet imperdiet. Integer ultricies scelerisque augue, sit amet facilisis ligula euismod sit amet. Vivamus vitae dictum ligula. Nulla consectetur sed tortor ut fermentum. Ut eros odio, iaculis vel mattis non, tempor vulputate felis. Aenean eros turpis, facilisis et rhoncus finibus, interdum at risus.</p>
+                
+                <p>Pellentesque ac dictum justo. Nullam rutrum urna id hendrerit feugiat. Nullam sollicitudin posuere interdum. Maecenas pretium posuere elit id pretium. Nam pellentesque posuere nulla in pulvinar. Curabitur eget mi vestibulum, gravida leo eu, imperdiet dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ut venenatis ex. Suspendisse mauris dolor, egestas sit amet est tempor, feugiat gravida nibh. Cras hendrerit ante vitae magna molestie placerat sit amet sed dolor. Cras non orci interdum enim varius consequat. Nulla quis turpis nec ligula semper euismod viverra non nibh. Vestibulum tristique tortor vitae arcu dictum, vel laoreet urna maximus. Vivamus eu maximus nunc, non finibus nisi. Nulla sodales ultrices eros, at posuere mauris facilisis et. Aliquam erat volutpat.</p>
                
                 <div class="clear"></div>
             </div>
@@ -122,7 +84,7 @@
                       <li class="nav-item">
                         <a class="nav-link" href="faq.php"> FAQ |</a>
                       </li>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us </a>
                       </li>
                     </ul>

@@ -1,4 +1,4 @@
-<?php
+<?php 
     session_start();
 ?>
 
@@ -24,10 +24,10 @@
                       <li class="nav-item ">
                         <a class="nav-link" href="index.php">Home | </a>
                       </li>
-                      <li class="nav-item ">
+                      <li class="nav-item active">
                         <a class="nav-link" href="aboutus.php">About Us |</a>
                       </li>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us |</a>
                       </li>
                        <?php 
@@ -55,56 +55,13 @@
                 </nav>
             </header>
             <br><br>
-            <h1><center>Contact us </center></h1>
-            <h6><center>Via filling up this form:</center></h6>
-            
+            <h1><center>About us: </center></h1>
             <div id="main">
-                <form action="PHPforContactUs.php" method="POST">
-                    <br>
-                    
-                                        
-                     <?php 
-                            if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
-                                
-                                echo "<label for='firstname'>First Name</label><br>
-                    <input type='text' id='firstname' name='firstname' value='".$_SESSION['name']."' disabled>
-                    <br>
-                    <label for='lastname'>Last Name</label><br>
-                    <input type='text' id='lastname' name='lastname' value='".$_SESSION['surname']."' disabled>
-                    <br>
-                    <label for='email'>Email</label><br>
-                    <input type='email' id='email' name='email' value='".$_SESSION['email']."' disabled>
-                    <br>
-                           <label for='password'>Password</label><br>
-                    <input type='password' id='password' name='password' placeholder='Your email password..'>
-                    <br>";
-                                
-                            }
-                        else { 
-                            $_SESSION =array();
-                            echo "<label for='firstname'>First Name</label><br>
-                    <input type='text' id='firstname' name='firstname' placeholder='Your name..'>
-                    <br>
-                    <label for='lastname'>Last Name</label><br>
-                    <input type='text' id='lastname' name='lastname' placeholder='Your last name..'>
-                    <br>
-                    <label for='email'>Email</label><br>
-                    <input type='email' id='email' name='email' placeholder='Your email..'>
-                    <br>
-                            <label for='password'>Password</label><br>
-                    <input type='password' id='password' name='password' placeholder='Your email password..'>
-                    <br>";
-                        }                        
-                        ?>
-                    <label for='topic'>Topic</label><br>
-                    <input type='text' id='topic' name='topic' placeholder='Your topic..'>
-                    <br>
-                    <label for="subject">Subject</label><br>
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                    <br>
-                    <input type="submit" value="Submit"><br><br>
-                    <input type="reset" value="Reset"><br><br>
-                </form>
+                <p>Hungry.com.mt is a college project created by G. T., which is based on the original website called "TimeToEat.com.mt". The purpose of this project is to dublicate the functions of ordering food online and to provide a fully functional website and a management desktop  application, connected to a dababase. The only purpose of this project is to try the student's creativity and skills in the area of ICT, and to be assessed. This project is not used for any commercial purposes.</p>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non tristique elit, ac consectetur elit. Curabitur ut lacus eros. Integer malesuada eros vestibulum, tristique dui quis, consequat nunc. Cras consectetur dui id justo lacinia, eu eleifend risus congue. Mauris et porttitor dolor, id pretium velit. Sed eros tortor, pretium sed arcu vel, volutpat hendrerit dolor. Nunc feugiat ac ligula at convallis. Morbi odio libero, bibendum vel mattis eget, sollicitudin ac nulla. Nullam in mauris at erat imperdiet malesuada. Mauris sit amet velit dignissim, laoreet mauris eget, hendrerit enim. </p>
+
+                <p>Morbi vel quam faucibus, placerat lorem ut, interdum ex. Etiam quis erat sodales, rhoncus augue non, porta orci. Etiam vel velit varius, consequat nunc id, tincidunt nisi. Nullam dictum magna ac justo commodo rhoncus. Fusce condimentum pellentesque tincidunt. Integer facilisis non lectus quis luctus. Etiam eget dui pellentesque, luctus nulla ac, auctor justo. Maecenas risus lorem, sagittis in justo non, tempus laoreet ipsum. Proin eget nisi vitae mi ultricies placerat. Donec eget egestas nibh, vel sagittis orci. Praesent feugiat sagittis diam quis sodales. Nam sed mollis mi, sed porta ipsum. Donec ac congue libero.</p>
                  
                
                 <div class="clear"></div>
@@ -122,7 +79,7 @@
                       <li class="nav-item">
                         <a class="nav-link" href="faq.php"> FAQ |</a>
                       </li>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us </a>
                       </li>
                     </ul>
