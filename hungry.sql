@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 07, 2018 at 11:43 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Host: 127.0.0.1:3307
+-- Generation Time: May 09, 2018 at 12:15 PM
+-- Server version: 10.1.22-MariaDB
+-- PHP Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -281,7 +281,7 @@ CREATE TABLE `restaurant` (
 INSERT INTO `restaurant` (`restaurantId`, `rastaurantName`, `localityId`) VALUES
 (1, 'Ocean Basket', 2),
 (2, 'Pizza Hut', 3),
-(3, 'Hugo\'s Burgers', 8),
+(3, 'Hugos Burgers', 8),
 (4, 'Gate of India', 9),
 (5, 'Peking', 4),
 (6, 'Okurama', 6);
@@ -289,19 +289,19 @@ INSERT INTO `restaurant` (`restaurantId`, `rastaurantName`, `localityId`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `restaurant-item`
+-- Table structure for table `restaurantitem`
 --
 
-CREATE TABLE `restaurant-item` (
+CREATE TABLE `restaurantitem` (
   `restaurantIId` int(11) NOT NULL,
   `itemId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `restaurant-item`
+-- Dumping data for table `restaurantitem`
 --
 
-INSERT INTO `restaurant-item` (`restaurantIId`, `itemId`) VALUES
+INSERT INTO `restaurantitem` (`restaurantIId`, `itemId`) VALUES
 (1, 2),
 (1, 3),
 (1, 4),
@@ -343,7 +343,97 @@ INSERT INTO `restaurant-item` (`restaurantIId`, `itemId`) VALUES
 (1, 41),
 (1, 42),
 (1, 44),
-(2, 45);
+(2, 45),
+(2, 46),
+(2, 47),
+(2, 48),
+(2, 49),
+(3, 50),
+(3, 51),
+(3, 52),
+(3, 54),
+(4, 56),
+(4, 55),
+(4, 57),
+(4, 58),
+(4, 59),
+(5, 60),
+(5, 61),
+(5, 62),
+(5, 63),
+(5, 64),
+(5, 65),
+(5, 66),
+(6, 34),
+(6, 35),
+(6, 36),
+(6, 37),
+(6, 38),
+(6, 39),
+(6, 12),
+(6, 13),
+(6, 14),
+(6, 15),
+(3, 75),
+(3, 74),
+(3, 73),
+(3, 72),
+(3, 71),
+(3, 70),
+(3, 68),
+(3, 69),
+(3, 67),
+(3, 66),
+(1, 75),
+(1, 74),
+(1, 73),
+(1, 72),
+(1, 71),
+(1, 70),
+(1, 69),
+(1, 68),
+(1, 67),
+(1, 66),
+(2, 75),
+(2, 74),
+(2, 73),
+(2, 72),
+(2, 71),
+(2, 70),
+(2, 69),
+(2, 68),
+(2, 67),
+(2, 66),
+(6, 75),
+(6, 74),
+(6, 73),
+(6, 72),
+(6, 71),
+(6, 70),
+(6, 69),
+(6, 66),
+(6, 68),
+(6, 67),
+(4, 75),
+(4, 74),
+(4, 73),
+(4, 72),
+(4, 71),
+(4, 70),
+(4, 69),
+(4, 68),
+(4, 67),
+(4, 66),
+(5, 75),
+(5, 74),
+(5, 73),
+(5, 72),
+(5, 71),
+(5, 70),
+(5, 69),
+(5, 68),
+(5, 67),
+(5, 66);
 
 --
 -- Indexes for dumped tables
@@ -410,9 +500,9 @@ ALTER TABLE `restaurant`
   ADD KEY `localityId` (`localityId`);
 
 --
--- Indexes for table `restaurant-item`
+-- Indexes for table `restaurantitem`
 --
-ALTER TABLE `restaurant-item`
+ALTER TABLE `restaurantitem`
   ADD KEY `restaurantIId` (`restaurantIId`),
   ADD KEY `itemId` (`itemId`);
 
@@ -425,43 +515,36 @@ ALTER TABLE `restaurant-item`
 --
 ALTER TABLE `category`
   MODIFY `categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
   MODIFY `clientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
   MODIFY `itemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
-
 --
 -- AUTO_INCREMENT for table `locality`
 --
 ALTER TABLE `locality`
   MODIFY `localityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
   MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `ordertype`
 --
 ALTER TABLE `ordertype`
   MODIFY `orderTypeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
   MODIFY `restaurantId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- Constraints for dumped tables
 --
@@ -494,11 +577,11 @@ ALTER TABLE `restaurant`
   ADD CONSTRAINT `restaurant_ibfk_1` FOREIGN KEY (`localityId`) REFERENCES `locality` (`localityId`);
 
 --
--- Constraints for table `restaurant-item`
+-- Constraints for table `restaurantitem`
 --
-ALTER TABLE `restaurant-item`
-  ADD CONSTRAINT `restaurant-item_ibfk_1` FOREIGN KEY (`restaurantIId`) REFERENCES `restaurant` (`restaurantId`),
-  ADD CONSTRAINT `restaurant-item_ibfk_2` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`);
+ALTER TABLE `restaurantitem`
+  ADD CONSTRAINT `restaurantitem_ibfk_1` FOREIGN KEY (`restaurantIId`) REFERENCES `restaurant` (`restaurantId`),
+  ADD CONSTRAINT `restaurantitem_ibfk_2` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

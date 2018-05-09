@@ -1,11 +1,12 @@
 <?php 
     session_start();
+
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hungry.com.mt - Main Page</title>
+        <title>All Restaurants</title>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -21,49 +22,56 @@
                   <div class="collapse navbar-collapse" id="navbarNav">
                     <img src="images/smalllogo.png" id="logo">
                     <ul class="navbar-nav ml-auto">
-                      <li class="nav-item ">
+                      <li class="nav-item active">
                         <a class="nav-link" href="index.php">Home | </a>
                       </li>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <a class="nav-link" href="aboutus.php">About Us |</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us |</a>
                       </li>
-                       <?php 
-                            if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
-                                
-                                echo "<li class='nav-item'>
-                        <a class='nav-link' href='login.php'> Your Basket | </a>
+                      <li class="nav-item">
+                        <a class="nav-link" href="login.php">Log in | </a>
                       </li>
-                      <li class='nav-item'>
-                        <a class='nav-link' href='logout.php'> Log out  </a>
-                      </li>";
-                            }
-                        else { 
-                            $_SESSION =array();
-                            echo "<li class='nav-item'>
-                        <a class='nav-link' href='login.php'>Log in | </a>
+                      <li class="nav-item">
+                        <a class="nav-link" href="signup.php">Sign up  </a>
                       </li>
-                      <li class='nav-item'>
-                        <a class='nav-link' href='signup.php'>Sign up  </a>
-                      </li>";
-                        }                        
-                        ?>
                     </ul>
                   </div>
                 </nav>
             </header>
             <br><br>
-            <h1><center>About us: </center></h1>
+            <h1><center>All Restaurants: </center></h1>
             <div id="main">
-                <p>Hungry.com.mt is a college project created by G. T., which is based on the original website called "TimeToEat.com.mt". The purpose of this project is to dublicate the functions of ordering food online and to provide a fully functional website and a management desktop  application, connected to a dababase. The only purpose of this project is to try the student's creativity and skills in the area of ICT, and to be assessed. This project is not used for any commercial purposes.</p>
+               <?php    
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
+                $query = "select rastaurantName from restaurant ";
+                $result = mysqli_query($conn, $query);
+                //echo $result;
+                while($row = mysqli_fetch_assoc($result)) {
+                    if ($row['rastaurantName'] == 'Ocean Basket') {
+                    echo "<h2><center><a href='oceanBasket.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";} 
+                 if ($row['rastaurantName'] == 'Pizza Hut') {
+                    echo "<h2><center><a href='pizzahut.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";} 
+                  if ($row['rastaurantName'] == 'Hugos Burgers') {
+                    echo "<h2><center><a href='hugos.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
+                   if ($row['rastaurantName'] == 'Gate of India') {
+                    echo "<h2><center><a href='gateofindia.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
                 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non tristique elit, ac consectetur elit. Curabitur ut lacus eros. Integer malesuada eros vestibulum, tristique dui quis, consequat nunc. Cras consectetur dui id justo lacinia, eu eleifend risus congue. Mauris et porttitor dolor, id pretium velit. Sed eros tortor, pretium sed arcu vel, volutpat hendrerit dolor. Nunc feugiat ac ligula at convallis. Morbi odio libero, bibendum vel mattis eget, sollicitudin ac nulla. Nullam in mauris at erat imperdiet malesuada. Mauris sit amet velit dignissim, laoreet mauris eget, hendrerit enim. </p>
+                  if ($row['rastaurantName'] == 'Peking') {
+                    echo "<h2><center><a href='peking.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";
+                    } else  
+                     if ($row['rastaurantName'] == 'Okurama') {
+                    echo "<h2><center><a href='okurama.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
+                    /*else {
+                        echo "something went wrong";
+                    }*/
+                        //echo "<h2><center>$row[rastaurantName]</center></h2> <br/>";
+                }
+                ?>
 
-                <p>Morbi vel quam faucibus, placerat lorem ut, interdum ex. Etiam quis erat sodales, rhoncus augue non, porta orci. Etiam vel velit varius, consequat nunc id, tincidunt nisi. Nullam dictum magna ac justo commodo rhoncus. Fusce condimentum pellentesque tincidunt. Integer facilisis non lectus quis luctus. Etiam eget dui pellentesque, luctus nulla ac, auctor justo. Maecenas risus lorem, sagittis in justo non, tempus laoreet ipsum. Proin eget nisi vitae mi ultricies placerat. Donec eget egestas nibh, vel sagittis orci. Praesent feugiat sagittis diam quis sodales. Nam sed mollis mi, sed porta ipsum. Donec ac congue libero.</p>
-                 
-               
+                
                 <div class="clear"></div>
             </div>
             <div class="push"></div>

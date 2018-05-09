@@ -23,16 +23,16 @@
                     <img src="images/smalllogo.png" id="logo">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home | </a>
+                        <a class="nav-link" href="index.php">Home | </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">About Us |</a>
+                        <a class="nav-link" href="aboutus.php">About Us |</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="contactus.html">Contact Us |</a>
+                        <a class="nav-link" href="contactus.php">Contact Us |</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="login.html">Log in | </a>
+                        <a class="nav-link" href="login.php">Log in | </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="signup.php">Sign up  </a>
@@ -44,13 +44,36 @@
             <br><br>
             <h1><center>All locations: </center></h1>
             <div id="main">
-              
-               <?php 
-                    
-                
-                
-                ?>
+               <?php    
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
+                $query = "select localityName from locality ";
+                $result = mysqli_query($conn, $query);
+                while($row = mysqli_fetch_assoc($result)) {
                
+                    if ($row['localityName'] == 'Buggiba') {
+                    echo "<h2><center><a href='oceanBasket.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
+                 if ($row['localityName'] == 'Hamrun') {
+                    echo "<h2><center><a href='pizzahut.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
+                  if ($row['localityName'] == 'Attard') {
+                    echo "<h2><center><a href='hugos.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
+                   if ($row['localityName'] == 'Sliema') {
+                    echo "<h2><center><a href='gateofindia.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
+                
+                  if ($row['localityName'] == 'St Julians') {
+                    echo "<h2><center><a href='peking.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";
+                    } else  
+                     if ($row['localityName'] == 'Marsaxlokk') {
+                    echo "<h2><center><a href='okurama.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
+                   
+                        //echo "<h2><center>$row[rastaurantName]</center></h2> <br/>";
+                    
+                        //echo "<h2><center>$row[rastaurantName]</center></h2> <br/>";
+                }
+                    
+                ?>
+
+            
+                
                 <div class="clear"></div>
             </div>
             <div class="push"></div>
@@ -61,13 +84,13 @@
                    Copyright &copy; 2018 Gabriela Todorova. Hungry.com.mt. All Rights Reserved
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item">
-                        <a class="nav-link" href="help.html">Help | </a>
+                        <a class="nav-link" href="help.php">Help | </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="faq.html"> FAQ |</a>
+                        <a class="nav-link" href="faq.php"> FAQ |</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="contactus.html">Contact Us </a>
+                        <a class="nav-link" href="contactus.php">Contact Us </a>
                       </li>
                     </ul>
                   </div>

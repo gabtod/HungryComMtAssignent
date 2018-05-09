@@ -84,11 +84,13 @@
                     Select Your Location...</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="#">Attard</a>
-                      <a class="dropdown-item" href="#">Qormi</a>
+                      <a class="dropdown-item" href="#">Hamrun</a>
                       <a class="dropdown-item" href="#">Sliema</a>
-                      <a class="dropdown-item" href="#">Valletta</a>
+                      <a class="dropdown-item" href="#">Marsaxlokk</a>
+                      <a class="dropdown-item" href="#">Bugibba</a>
+                      <a class="dropdown-item" href="#">St Julians</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">All</a>
+                    <a class="dropdown-item" href="allLocations.php">All</a>
                   </div>
                 </div>
                 
@@ -98,12 +100,14 @@
                   <a class="btn btn-danger btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select The Restaurant...</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Ocean Basket</a>
-                      <a class="dropdown-item" href="#">Okurama</a>
-                      <a class="dropdown-item" href="#">Gate of India</a>
-                      <a class="dropdown-item" href="#">Pizza Hut</a>
+                    <a class="dropdown-item" href="oceanBasket.php">Ocean Basket</a>
+                      <a class="dropdown-item" href="okurama.php">Okurama</a>
+                      <a class="dropdown-item" href="gateofindia.php">Gate of India</a>
+                      <a class="dropdown-item" href="pizzahut.php">Pizza Hut</a>
+                      <a class="dropdown-item" href="hugos.php">Hugo's Burgers</a>
+                      <a class="dropdown-item" href="peking.php">Peking</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">All</a>
+                    <a class="dropdown-item" href="allrestaurants.php">All</a>
                   </div>
                 </div>
                

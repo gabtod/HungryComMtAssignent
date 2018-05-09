@@ -76,31 +76,31 @@
                     <input type='email' id='email' name='email' value='".$_SESSION['email']."' disabled>
                     <br>
                            <label for='password'>Password</label><br>
-                    <input type='password' id='password' name='password' placeholder='Your email password..'>
+                    <input type='password' id='password' name='password' placeholder='Your email password..' required>
                     <br>";
                                 
                             }
                         else { 
                             $_SESSION =array();
                             echo "<label for='firstname'>First Name</label><br>
-                    <input type='text' id='firstname' name='firstname' placeholder='Your name..'>
+                    <input type='text' id='firstname' name='firstname' placeholder='Your name..' required>
                     <br>
                     <label for='lastname'>Last Name</label><br>
-                    <input type='text' id='lastname' name='lastname' placeholder='Your last name..'>
+                    <input type='text' id='lastname' name='lastname' placeholder='Your last name..' required>
                     <br>
                     <label for='email'>Email</label><br>
-                    <input type='email' id='email' name='email' placeholder='Your email..'>
+                    <input type='email' id='email' name='email' placeholder='Your email..' required>
                     <br>
                             <label for='password'>Password</label><br>
-                    <input type='password' id='password' name='password' placeholder='Your email password..'>
+                    <input type='password' id='password' name='password' placeholder='Your email password..' required>
                     <br>";
                         }                        
                         ?>
                     <label for='topic'>Topic</label><br>
-                    <input type='text' id='topic' name='topic' placeholder='Your topic..'>
+                    <input type='text' id='topic' name='topic' placeholder='Your topic..' required>
                     <br>
                     <label for="subject">Subject</label><br>
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
                     <br>
                     <input type="submit" value="Submit"><br><br>
                     <input type="reset" value="Reset"><br><br>

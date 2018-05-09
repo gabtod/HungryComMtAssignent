@@ -1,10 +1,11 @@
 <?php 
     session_start();
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Log in </title>
+        <title>Peking Menu</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
@@ -19,16 +20,16 @@
                   <div class="collapse navbar-collapse" id="navbarNav">
                     <img src="images/smalllogo.png" id="logo">
                     <ul class="navbar-nav ml-auto">
-                      <li class="nav-item ">
+                      <li class="nav-item active">
                         <a class="nav-link" href="index.php">Home | </a>
                       </li>
-                      <li class="nav-item ">
+                      <li class="nav-item">
                         <a class="nav-link" href="aboutus.php">About Us |</a>
                       </li>
-                      <li class="nav-item ">
+                      <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us |</a>
-                      </li>
-                      <?php 
+
+                        <?php 
                             if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
                                 
                                 echo "<li class='nav-item'>
@@ -53,22 +54,34 @@
                 </nav>
             </header>
             <br><br>
-            <h1><center>Login To Hungry.com.mt </center></h1>            
+            <?php 
+                     if (isset($_SESSION['username']) && (isset($_SESSION['password']))) { 
+                         echo " <h1><center>Welcome,", $_SESSION['username'],"  </center></h1>";
+                      }
+            
+            ?>
+           
+            <h1><center>Peking restaurant offers: </center></h1>
             <div id="main">
-                <form action="loginPHPonly.php" method="POST">
-                    <br>
-                    <label for="username">Username </label><br>
-                    <input type="text" id="username" name="username" placeholder="Username..">
-                    <br><br>
-                    <label for="password">Password </label><br>
-                    <input type="password" id="password" name="password" placeholder="Password..">
-                    <br><br>
+              
+                 <?php
+                /*if (isset($_SESSION['username']) && (isset($_SESSION['password']))) { */
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
+                /*$query = "select itemId from restaurantitem where restaurantIId=1 ";*/
+                $query = "select restaurantitem.itemId, item.itemName, item.itemDescription, item.itemPrice from item left join restaurantitem on item.itemId = restaurantitem.itemId
+                where restaurantitem.restaurantIId=5";
+                $result =mysqli_query($conn,$query);
+                while($row = mysqli_fetch_assoc($result)) {
                     
-                    New to Hungry.com.mt? <a href="signup.html">Sign up and start your order immediatrely</a>
-                    <br><br>
-                    <input type="submit" value="Login"><br><br>
-                    <input type="reset" value="Reset"><br><br>
-                </form>           
+                    echo "<div><a href='#'><b>$row[itemName] </b></a> Price &#x20AC; $row[itemPrice]</div>";
+                    echo "<i>$row[itemDescription]</i><hr/>";
+                    
+                }
+                /*}else {
+                    echo "<p><center> You have to <a href='login.php'>log in</a> or <a href='signup.php'>sign up</a> first.</center> </p>";
+                }*/
+                ?>
+               
                 <div class="clear"></div>
             </div>
             <div class="push"></div>
@@ -90,32 +103,8 @@
                     </ul>
                   </div>
                 </nav>
+                
             </footer>
-        </div>        
+        </div>
     </body>
 </html>
-
-<?php
-        /*if (isset($_POST['username'])) {
-            //echo 'good till here';
-		$username = $_POST['username'];
-        $password = $_POST['password'];}
-       
-		
-        $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
-        $query = "select clientUsername, clientPassword from client where  clientUsername='".$username."' and clientPassword = '".$password."';";
-        //echo "<br>$query<br>";
-        $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_assoc($result);
-        
-            if (mysqli_num_rows($result) > 0) {
-                $_SESSION['username'] =$username;
-                $_SESSION['password'] = $password;
-                //echo "Welcome";
-                header("Location: ./index.html");
-                //exit();
-            }
-            else {
-               //echo "not logged";
-            }*/
-?>
