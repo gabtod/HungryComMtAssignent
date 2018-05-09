@@ -33,7 +33,7 @@
                             if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
                                 
                                 echo "<li class='nav-item'>
-                        <a class='nav-link' href='login.php'> Your Basket | </a>
+                        <a class='nav-link' href='basket.php'> Your Basket | </a>
                       </li>
                       <li class='nav-item'>
                         <a class='nav-link' href='logout.php'> Log out  </a>
@@ -66,7 +66,7 @@
               
                  <?php
                 /*if (isset($_SESSION['username']) && (isset($_SESSION['password']))) { */
-                $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
                 /*$query = "select itemId from restaurantitem where restaurantIId=1 ";*/
                 $query = "select restaurantitem.itemId, item.itemName, item.itemDescription, item.itemPrice from item left join restaurantitem on item.itemId = restaurantitem.itemId
                 where restaurantitem.restaurantIId=1";

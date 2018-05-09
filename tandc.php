@@ -34,7 +34,7 @@
                             if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
                                 
                                 echo "<li class='nav-item'>
-                        <a class='nav-link' href='login.php'> Your Basket | </a>
+                        <a class='nav-link' href='basket.php'> Your Basket | </a>
                       </li>
                       <li class='nav-item'>
                         <a class='nav-link' href='logout.php'> Log out  </a>

@@ -19,7 +19,7 @@ footer, .push {
 header, footer, #main, h5 {
     background-color: #F8F8F8;
     opacity: 0.95;
-    border-radius: 20px;
+    border-radius: 30px;
     margin: 10px;
 }
 #container {

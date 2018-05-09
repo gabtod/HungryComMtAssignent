@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>All Restaurants</title>
+        <title>Location</title>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -56,37 +56,42 @@
                 </nav>
             </header>
             <br><br>
-            <h1><center>All Restaurants: </center></h1>
+            <h1><center>Location: </center></h1>
             <div id="main">
                <?php    
                 $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
-                $query = "select rastaurantName from restaurant ";
+                $query = "select localityName from locality ";
                 $result = mysqli_query($conn, $query);
-                //echo $result;
                 while($row = mysqli_fetch_assoc($result)) {
-                    if ($row['rastaurantName'] == 'Ocean Basket') {
-                    echo "<h2><center><a href='oceanBasket.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";} 
-                 if ($row['rastaurantName'] == 'Pizza Hut') {
-                    echo "<h2><center><a href='pizzahut.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";} 
-                  if ($row['rastaurantName'] == 'Hugos Burgers') {
-                    echo "<h2><center><a href='hugos.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
-                   if ($row['rastaurantName'] == 'Gate of India') {
-                    echo "<h2><center><a href='gateofindia.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
-                
-                  if ($row['rastaurantName'] == 'Peking') {
-                    echo "<h2><center><a href='peking.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";
-                    } else  
-                     if ($row['rastaurantName'] == 'Okurama') {
-                    echo "<h2><center><a href='okurama.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
-                    if ($row['rastaurantName'] == 'Sofra Kebap') {
-                    echo "<h2><center><a href='sofra.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
-                    /*else {
-                        echo "something went wrong";
-                    }*/
-                        //echo "<h2><center>$row[rastaurantName]</center></h2> <br/>";
-                }
+                echo "<h2><center>$row[localityName]</center></h2> <br/>";
+                    }
                 ?>
 
+                 <?php      
+                /*$conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                $query = "select locality.localityName, restaurant.restaurantId FROM locality
+                           FULL OUTER JOIN restaurant ON locality.localityId = restaurant.localityId;";
+                
+                $result = mysqli_query($conn, $query);
+                echo $result;
+                while($row = mysqli_fetch_assoc($result)) {
+                echo "<h2><center>$row[localityName] $row[restaurantId]</center></h2> <br/>";
+                }
+                    */
+                
+                 $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
+                /*$query = "select itemId from restaurantitem where restaurantIId=1 ";*/
+                $query = "select restaurant.restaurantName,  locality.localityName from locality left join restaurant on restaurant.localityId = locality.localityId;";
+                $result =mysqli_query($conn,$query);
+                while($row = mysqli_fetch_assoc($result)) {
+                    
+                    echo "<div>$row[restaurantName] $row[localityName]</div>";
+                    
+                    
+                }
+                
+                ?>
+                
                 
                 <div class="clear"></div>
             </div>

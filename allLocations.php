@@ -31,12 +31,26 @@
                       <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us |</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="login.php">Log in | </a>
+                      <?php 
+                            if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
+                                
+                                echo "<li class='nav-item'>
+                        <a class='nav-link' href='basket.php'> Your Basket | </a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="signup.php">Sign up  </a>
+                      <li class='nav-item'>
+                        <a class='nav-link' href='logout.php'> Log out  </a>
+                      </li>";
+                            }
+                        else { 
+                            $_SESSION =array();
+                            echo "<li class='nav-item'>
+                        <a class='nav-link' href='login.php'>Log in | </a>
                       </li>
+                      <li class='nav-item'>
+                        <a class='nav-link' href='signup.php'>Sign up  </a>
+                      </li>";
+                        }                        
+                        ?>
                     </ul>
                   </div>
                 </nav>
@@ -45,25 +59,25 @@
             <h1><center>All locations: </center></h1>
             <div id="main">
                <?php    
-                $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
                 $query = "select localityName from locality ";
                 $result = mysqli_query($conn, $query);
                 while($row = mysqli_fetch_assoc($result)) {
                
                     if ($row['localityName'] == 'Buggiba') {
-                    echo "<h2><center><a href='oceanBasket.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
+                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
                  if ($row['localityName'] == 'Hamrun') {
-                    echo "<h2><center><a href='pizzahut.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
+                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
                   if ($row['localityName'] == 'Attard') {
-                    echo "<h2><center><a href='hugos.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
+                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
                    if ($row['localityName'] == 'Sliema') {
-                    echo "<h2><center><a href='gateofindia.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
+                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
                 
                   if ($row['localityName'] == 'St Julians') {
-                    echo "<h2><center><a href='peking.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";
+                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";
                     } else  
                      if ($row['localityName'] == 'Marsaxlokk') {
-                    echo "<h2><center><a href='okurama.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
+                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
                    
                         //echo "<h2><center>$row[rastaurantName]</center></h2> <br/>";
                     

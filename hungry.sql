@@ -2,8 +2,8 @@
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3307
--- Generation Time: May 09, 2018 at 12:15 PM
+-- Host: 127.0.0.1
+-- Generation Time: May 09, 2018 at 01:40 PM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -189,7 +189,9 @@ INSERT INTO `item` (`itemId`, `itemName`, `itemDescription`, `itemPrice`, `itemQ
 (72, 'Cappucino', NULL, 2.50, 1),
 (73, 'Soft Drink', NULL, 2.00, 1),
 (74, 'Local Beer', NULL, 5.00, 1),
-(75, 'Glass of Wine', NULL, 4.50, 1);
+(75, 'Glass of Wine', NULL, 4.50, 1),
+(76, 'Chicken Wrap', 'Chicken wrap with 2 side salads and a portion of chips', 6.00, 1),
+(77, 'Lamp Wrap', 'Lamb wrap with 2 side salads and a portion of chips', 6.00, 1);
 
 -- --------------------------------------------------------
 
@@ -284,7 +286,8 @@ INSERT INTO `restaurant` (`restaurantId`, `rastaurantName`, `localityId`) VALUES
 (3, 'Hugos Burgers', 8),
 (4, 'Gate of India', 9),
 (5, 'Peking', 4),
-(6, 'Okurama', 6);
+(6, 'Okurama', 6),
+(7, 'Sofra Kebap', 2);
 
 -- --------------------------------------------------------
 
@@ -433,7 +436,19 @@ INSERT INTO `restaurantitem` (`restaurantIId`, `itemId`) VALUES
 (5, 69),
 (5, 68),
 (5, 67),
-(5, 66);
+(5, 66),
+(7, 77),
+(7, 76),
+(7, 75),
+(7, 74),
+(7, 73),
+(7, 72),
+(7, 71),
+(7, 70),
+(7, 69),
+(7, 68),
+(7, 67),
+(7, 66);
 
 --
 -- Indexes for dumped tables
@@ -524,7 +539,7 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `itemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `itemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 --
 -- AUTO_INCREMENT for table `locality`
 --
@@ -544,7 +559,7 @@ ALTER TABLE `ordertype`
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `restaurantId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `restaurantId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Constraints for dumped tables
 --

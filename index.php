@@ -39,7 +39,7 @@
                             if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
                                 
                                 echo "<li class='nav-item'>
-                        <a class='nav-link' href='login.php'> Your Basket | </a>
+                        <a class='nav-link' href='basket.php'> Your Basket | </a>
                       </li>
                       <li class='nav-item'>
                         <a class='nav-link' href='logout.php'> Log out  </a>
@@ -72,8 +72,8 @@
               
                  <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
                   <button type="button" class="btn btn-danger active">All</button>
-                  <button type="button" class="btn btn-danger">Delivery</button>
-                  <button type="button" class="btn btn-danger">Pickup</button>
+                  <button type="button" class="btn btn-danger"><a href="allrestaurants.php"><font color='white'>Delivery</font></a></button>
+                     <button type="button" class="btn btn-danger"><a href="allrestaurants.php"><font color='white'>Pickup</font></a></button>
                 </div>
                 
                 <br><br><br><br>
@@ -83,14 +83,16 @@
                   <a class="btn btn-danger btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select Your Location...</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="allLocations.php">All</a>
+                       <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Attard</a>
                       <a class="dropdown-item" href="#">Hamrun</a>
                       <a class="dropdown-item" href="#">Sliema</a>
                       <a class="dropdown-item" href="#">Marsaxlokk</a>
                       <a class="dropdown-item" href="#">Bugibba</a>
                       <a class="dropdown-item" href="#">St Julians</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="allLocations.php">All</a>
+                   
+                    
                   </div>
                 </div>
                 
@@ -100,15 +102,18 @@
                   <a class="btn btn-danger btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select The Restaurant...</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                       <a class="dropdown-item" href="allrestaurants.php">All</a>
+                      <!--<div class="dropdown-divider"></div>-->
                     <a class="dropdown-item" href="oceanBasket.php">Ocean Basket</a>
-                      <a class="dropdown-item" href="okurama.php">Okurama</a>
+                    <a class="dropdown-item" href="okurama.php">Okurama</a>
                       <a class="dropdown-item" href="gateofindia.php">Gate of India</a>
                       <a class="dropdown-item" href="pizzahut.php">Pizza Hut</a>
                       <a class="dropdown-item" href="hugos.php">Hugo's Burgers</a>
                       <a class="dropdown-item" href="peking.php">Peking</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="allrestaurants.php">All</a>
+                      <a class="dropdown-item" href="sofra.php">Sofra Kebap</a>
+                        
                   </div>
+                    
                 </div>
                
                 <div class="clear"></div>

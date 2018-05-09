@@ -1,13 +1,11 @@
 <?php 
     session_start();
-
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>All Restaurants</title>
-        
+        <title>Your Basket </title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
@@ -30,12 +28,18 @@
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us |</a>
+                      <!--</li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="login.html">Log in | </a>
                       </li>
-                     <?php 
+                      <li class="nav-item">
+                        <a class="nav-link" href="signup.php">Sign up  </a>
+                      </li>-->
+                        <?php 
                             if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
                                 
                                 echo "<li class='nav-item'>
-                        <a class='nav-link' href='basket.php'> Your Basket | </a>
+                        <a class='nav-link' href='login.php'> Your Basket | </a>
                       </li>
                       <li class='nav-item'>
                         <a class='nav-link' href='logout.php'> Log out  </a>
@@ -56,38 +60,18 @@
                 </nav>
             </header>
             <br><br>
-            <h1><center>All Restaurants: </center></h1>
+            <?php 
+                     if (isset($_SESSION['username']) && (isset($_SESSION['password']))) { 
+                         echo " <h1><center>Welcome,", $_SESSION['username'],"  </center></h1>";
+                      }
+            
+            ?>
+           
+            <h1><center> Your Basket: </center></h1>
             <div id="main">
-               <?php    
-                $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
-                $query = "select rastaurantName from restaurant ";
-                $result = mysqli_query($conn, $query);
-                //echo $result;
-                while($row = mysqli_fetch_assoc($result)) {
-                    if ($row['rastaurantName'] == 'Ocean Basket') {
-                    echo "<h2><center><a href='oceanBasket.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";} 
-                 if ($row['rastaurantName'] == 'Pizza Hut') {
-                    echo "<h2><center><a href='pizzahut.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";} 
-                  if ($row['rastaurantName'] == 'Hugos Burgers') {
-                    echo "<h2><center><a href='hugos.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
-                   if ($row['rastaurantName'] == 'Gate of India') {
-                    echo "<h2><center><a href='gateofindia.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
-                
-                  if ($row['rastaurantName'] == 'Peking') {
-                    echo "<h2><center><a href='peking.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";
-                    } else  
-                     if ($row['rastaurantName'] == 'Okurama') {
-                    echo "<h2><center><a href='okurama.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
-                    if ($row['rastaurantName'] == 'Sofra Kebap') {
-                    echo "<h2><center><a href='sofra.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
-                    /*else {
-                        echo "something went wrong";
-                    }*/
-                        //echo "<h2><center>$row[rastaurantName]</center></h2> <br/>";
-                }
-                ?>
-
-                
+              
+                </div>
+               
                 <div class="clear"></div>
             </div>
             <div class="push"></div>
