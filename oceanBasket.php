@@ -64,22 +64,25 @@
             <h1><center>Ocean Basket offers: </center></h1>
             <div id="main">
               
-                 <?php
-                /*if (isset($_SESSION['username']) && (isset($_SESSION['password']))) { */
-                $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
-                /*$query = "select itemId from restaurantitem where restaurantIId=1 ";*/
+                  <?php
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');
                 $query = "select restaurantitem.itemId, item.itemName, item.itemDescription, item.itemPrice from item left join restaurantitem on item.itemId = restaurantitem.itemId
                 where restaurantitem.restaurantIId=1";
                 $result =mysqli_query($conn,$query);
+                if(!isset($_SESSION['arrayOcean'])){
+    
+                    $_SESSION['arrayOcean'] = array();
+                }                
                 while($row = mysqli_fetch_assoc($result)) {
                     
-                    echo "<div><a href='#'><b>$row[itemName] </b></a> Price &#x20AC; $row[itemPrice]</div>";
-                    echo "<i>$row[itemDescription]</i><hr/>";
+                    echo "<form method='POST' action='oceanBasket.php'><a href='#'><b>$row[itemName] </b></a> Price &#x20AC; $row[itemPrice] <br>";
+                    if (isset($_SESSION['username']) && (isset($_SESSION['password']))) { 
+                          echo "<i>$row[itemDescription]</i> <br> <input type='submit' name='$row[itemId]' id='$row[itemId]' value='Add To Basket'><hr/></form> ";
+                      } else {
+                        echo "<i>$row[itemDescription]</i> <hr> </form>";
+                    }
                     
                 }
-                /*}else {
-                    echo "<p><center> You have to <a href='login.php'>log in</a> or <a href='signup.php'>sign up</a> first.</center> </p>";
-                }*/
                 ?>
                
                 <div class="clear"></div>
@@ -108,3 +111,8 @@
         </div>
     </body>
 </html>
+<?php 
+foreach($_POST as $name => $content) {
+        $_SESSION['arraySofra'][] = $name;
+    }
+?>

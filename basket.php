@@ -62,18 +62,166 @@
             <br><br>
             <?php 
                      if (isset($_SESSION['username']) && (isset($_SESSION['password']))) { 
-                         echo " <h1><center>Welcome,", $_SESSION['username'],"  </center></h1>";
+                         echo " <h1><center>Welcome to your Basket,", $_SESSION['username'],"  </center></h1>";
                       }
             
             ?>
            
-            <h1><center> Your Basket: </center></h1>
+            <!--<h1><center> Your Basket: </center></h1>-->
             <div id="main">
-              
+                    <?php
+                            if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
+                                if(!isset($_SESSION['arrayOkurama'])){$_SESSION['arrayOkurama'] = array();}
+                                if(!isset($_SESSION['arrayOcean'])){$_SESSION['arrayOcean'] = array();}
+                                if(!isset($_SESSION['arrayPizza'])){$_SESSION['arrayPizza'] = array();}
+                                if(!isset($_SESSION['arrayPeking'])){$_SESSION['arrayPeking'] = array();}
+                                if(!isset($_SESSION['arrayHugos'])){$_SESSION['arrayHugos'] = array();}
+                                if(!isset($_SESSION['arraySofra'])){$_SESSION['arraySofra'] = array();}
+                                if(!isset($_SESSION['arrayGate'])){$_SESSION['arrayGate'] = array();}
+                                
+           /*Okurama*/                  if (sizeof($_SESSION['arrayOkurama']) >0) {
+                                        echo "<center>Your order from Okurama restaurant includes ".sizeof($_SESSION['arrayOkurama'])." item/s. </center><br>";
+                                        $totalPrice = 0;      
+                                        foreach ($_SESSION['arrayOkurama'] as $name) {
+
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
+                                            $result = mysqli_query($conn, $query);
+                                            $row = mysqli_fetch_assoc($result);
+                                            if (mysqli_num_rows($result) > 0) {
+                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                $totalPrice += $row['itemPrice'];
+                                            }
+                                             else { echo $name;}
+                                        }
+                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+
+                                    }
+                                
+        /*OceanBasket*/                 if (sizeof($_SESSION['arrayOcean']) >0) {
+                                        echo "<center>Your order from Ocean Basket restaurant includes ".sizeof($_SESSION['arrayOcean'])." item/s. </center><br>";
+                                        $totalPrice = 0;      
+                                        foreach ($_SESSION['arrayOcean'] as $name) {
+
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
+                                            $result = mysqli_query($conn, $query);
+                                            $row = mysqli_fetch_assoc($result);
+                                            if (mysqli_num_rows($result) > 0) {
+                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                $totalPrice += $row['itemPrice'];
+                                            }
+                                             else { echo $name;}
+                                        }
+                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+
+                                    }
+                                
+       /*Pizza Hut*/                    if (sizeof($_SESSION['arrayPizza']) >0) {
+                                        echo "<center>Your order from Pizza Hut restaurant includes ".sizeof($_SESSION['arrayPizza'])." item/s. </center><br>";
+                                        $totalPrice = 0;      
+                                        foreach ($_SESSION['arrayPizza'] as $name) {
+
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
+                                            $result = mysqli_query($conn, $query);
+                                            $row = mysqli_fetch_assoc($result);
+                                            if (mysqli_num_rows($result) > 0) {
+                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                $totalPrice += $row['itemPrice'];
+                                            }
+                                             else { echo $name;}
+                                        }
+                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+
+                                    }
+                                
+      /*Peking*/                        if (sizeof($_SESSION['arrayPeking']) >0) {
+                                        echo "<center>Your order from Peking restaurant includes ".sizeof($_SESSION['arrayPeking'])." item/s. </center><br>";
+                                        $totalPrice = 0;      
+                                        foreach ($_SESSION['arrayPeking'] as $name) {
+
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
+                                            $result = mysqli_query($conn, $query);
+                                            $row = mysqli_fetch_assoc($result);
+                                            if (mysqli_num_rows($result) > 0) {
+                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                $totalPrice += $row['itemPrice'];
+                                            }
+                                             else { echo $name;}
+                                        }
+                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+
+                                    }
+                                
+       /*Sofra*/                        if (sizeof($_SESSION['arraySofra']) >0) {
+                                        echo "<center>Your order from Sofra Kebap restaurant includes ".sizeof($_SESSION['arraySofra'])." item/s. </center><br>";
+                                        $totalPrice = 0;      
+                                        foreach ($_SESSION['arraySofra'] as $name) {
+
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
+                                            $result = mysqli_query($conn, $query);
+                                            $row = mysqli_fetch_assoc($result);
+                                            if (mysqli_num_rows($result) > 0) {
+                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                $totalPrice += $row['itemPrice'];
+                                            }
+                                             else { echo $name;}
+                                        }
+                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+
+                                    }
+                                
+        /*Gate*/                        if (sizeof($_SESSION['arrayGate']) >0) {
+                                        echo "<center>Your order from Gate of India restaurant includes ".sizeof($_SESSION['arrayGate'])." item/s. </center><br>";
+                                        $totalPrice = 0;      
+                                        foreach ($_SESSION['arrayGate'] as $name) {
+
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
+                                            $result = mysqli_query($conn, $query);
+                                            $row = mysqli_fetch_assoc($result);
+                                            if (mysqli_num_rows($result) > 0) {
+                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                $totalPrice += $row['itemPrice'];
+                                            }
+                                             else { echo $name;}
+                                        }
+                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+
+                                    }
+                                
+       /*Hugos*/                        if (sizeof($_SESSION['arrayHugos']) >0) {
+                                        echo "<center>Your order from Hugos Burgers restaurant includes ".sizeof($_SESSION['arrayHugos'])." item/s. </center><br>";
+                                        $totalPrice = 0;      
+                                        foreach ($_SESSION['arrayHugos'] as $name) {
+
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
+                                            $result = mysqli_query($conn, $query);
+                                            $row = mysqli_fetch_assoc($result);
+                                            if (mysqli_num_rows($result) > 0) {
+                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                $totalPrice += $row['itemPrice'];
+                                            }
+                                             else { echo $name;}
+                                        }
+                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+
+                                    }
+                                //else {echo 'empty';}
+                            
+                        }
+                        else {echo 'register now';}
+                    ?>
+                    
+                
                 </div>
                
                 <div class="clear"></div>
-            </div>
+            
             <div class="push"></div>
             <footer>
                 
