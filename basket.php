@@ -80,7 +80,7 @@
                                 if(!isset($_SESSION['arrayGate'])){$_SESSION['arrayGate'] = array();}
                                 
            /*Okurama*/                  if (sizeof($_SESSION['arrayOkurama']) >0) {
-                                        echo "<center>Your order from Okurama restaurant includes ".sizeof($_SESSION['arrayOkurama'])." item/s. </center><br>";
+                                        echo "<center><h3>Your order from Okurama restaurant includes ".sizeof($_SESSION['arrayOkurama'])." item/s. </h3></center><br>";
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayOkurama'] as $name) {
 
@@ -89,17 +89,23 @@
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             if (mysqli_num_rows($result) > 0) {
-                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                echo "<form action='basket.php' method='POST'> $row[itemName] $row[itemPrice] <input type='submit' value='+' name='$row[itemId]' id= '$row[itemId]' title='Increase quantity'></form> 
+                                                <form method='POST' action='remove.php'><input type='submit' value='-' name='$row[itemId]' id= '$row[itemId]' title='Remove Item'></form>
+                                                <hr>";
+                                                
                                                 $totalPrice += $row['itemPrice'];
                                             }
                                              else { echo $name;}
                                         }
-                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                       echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
+                                       <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
+                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $totalPrice;
 
                                     }
                                 
         /*OceanBasket*/                 if (sizeof($_SESSION['arrayOcean']) >0) {
-                                        echo "<center>Your order from Ocean Basket restaurant includes ".sizeof($_SESSION['arrayOcean'])." item/s. </center><br>";
+                                        echo "<center><h3>Your order from Ocean Basket restaurant includes ".sizeof($_SESSION['arrayOcean'])." item/s. </h3></center><br>";
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayOcean'] as $name) {
 
@@ -108,17 +114,23 @@
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             if (mysqli_num_rows($result) > 0) {
-                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                echo "<form action='basket.php' method='POST'> $row[itemName] $row[itemPrice] <input type='submit' value='+' name='$row[itemId]' id= '$row[itemId]' title='Increase quantity'></form> 
+                                                <form method='POST' action='remove.php'><input type='submit' value='-' name='$row[itemId]' id= '$row[itemId]' title='Remove Item'></form>
+                                                <hr>";
+                                                
                                                 $totalPrice += $row['itemPrice'];
                                             }
                                              else { echo $name;}
                                         }
-                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                       echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
+                                       <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
+                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $totalPrice;
 
                                     }
                                 
        /*Pizza Hut*/                    if (sizeof($_SESSION['arrayPizza']) >0) {
-                                        echo "<center>Your order from Pizza Hut restaurant includes ".sizeof($_SESSION['arrayPizza'])." item/s. </center><br>";
+                                        echo "<center><h3>Your order from Pizza Hut restaurant includes ".sizeof($_SESSION['arrayPizza'])." item/s.</h3> </center><br>";
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayPizza'] as $name) {
 
@@ -127,17 +139,23 @@
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             if (mysqli_num_rows($result) > 0) {
-                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                echo "<form action='basket.php' method='POST'> $row[itemName] $row[itemPrice] <input type='submit' value='+' name='$row[itemId]' id= '$row[itemId]' title='Increase quantity'></form> 
+                                                <form method='POST' action='remove.php'><input type='submit' value='-' name='$row[itemId]' id= '$row[itemId]' title='Remove Item'></form>
+                                                <hr>";
+                                                
                                                 $totalPrice += $row['itemPrice'];
                                             }
                                              else { echo $name;}
                                         }
-                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                       echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
+                                       <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
+                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $totalPrice;
 
                                     }
                                 
       /*Peking*/                        if (sizeof($_SESSION['arrayPeking']) >0) {
-                                        echo "<center>Your order from Peking restaurant includes ".sizeof($_SESSION['arrayPeking'])." item/s. </center><br>";
+                                        echo "<center><h3>Your order from Peking restaurant includes ".sizeof($_SESSION['arrayPeking'])." item/s. </h3></center><br>";
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayPeking'] as $name) {
 
@@ -146,17 +164,23 @@
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             if (mysqli_num_rows($result) > 0) {
-                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                               echo "<form action='basket.php' method='POST'> $row[itemName] $row[itemPrice] <input type='submit' value='+' name='$row[itemId]' id= '$row[itemId]' title='Increase quantity'></form> 
+                                                <form method='POST' action='remove.php'><input type='submit' value='-' name='$row[itemId]' id= '$row[itemId]' title='Remove Item'></form>
+                                                <hr>";
+                                                
                                                 $totalPrice += $row['itemPrice'];
                                             }
                                              else { echo $name;}
                                         }
-                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                       echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
+                                       <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
+                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $totalPrice;
 
                                     }
                                 
        /*Sofra*/                        if (sizeof($_SESSION['arraySofra']) >0) {
-                                        echo "<center>Your order from Sofra Kebap restaurant includes ".sizeof($_SESSION['arraySofra'])." item/s. </center><br>";
+                                        echo "<h3><center>Your order from Sofra Kebap restaurant includes ".sizeof($_SESSION['arraySofra'])." item/s. </h3></center><br>";
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arraySofra'] as $name) {
 
@@ -165,17 +189,23 @@
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             if (mysqli_num_rows($result) > 0) {
-                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                echo "<form action='basket.php' method='POST'> $row[itemName] $row[itemPrice] <input type='submit' value='+' name='$row[itemId]' id= '$row[itemId]' title='Increase quantity'></form> 
+                                                <form method='POST' action='remove.php'><input type='submit' value='-' name='$row[itemId]' id= '$row[itemId]' title='Remove Item'></form>
+                                                <hr>";
+                                                
                                                 $totalPrice += $row['itemPrice'];
                                             }
                                              else { echo $name;}
                                         }
-                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                       echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
+                                       <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
+                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $totalPrice;
 
                                     }
                                 
         /*Gate*/                        if (sizeof($_SESSION['arrayGate']) >0) {
-                                        echo "<center>Your order from Gate of India restaurant includes ".sizeof($_SESSION['arrayGate'])." item/s. </center><br>";
+                                        echo "<center><h3>Your order from Gate of India restaurant includes ".sizeof($_SESSION['arrayGate'])." item/s. </h3></center><br>";
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayGate'] as $name) {
 
@@ -184,17 +214,23 @@
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             if (mysqli_num_rows($result) > 0) {
-                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                                echo "<form action='basket.php' method='POST'> $row[itemName] $row[itemPrice] <input type='submit' value='+' name='$row[itemId]' id= '$row[itemId]' title='Increase quantity'></form> 
+                                                <form method='POST' action='remove.php'><input type='submit' value='-' name='$row[itemId]' id= '$row[itemId]' title='Remove Item'></form>
+                                                <hr>";
+                                                
                                                 $totalPrice += $row['itemPrice'];
                                             }
                                              else { echo $name;}
                                         }
-                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                       echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
+                                       <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
+                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $totalPrice;
 
                                     }
                                 
        /*Hugos*/                        if (sizeof($_SESSION['arrayHugos']) >0) {
-                                        echo "<center>Your order from Hugos Burgers restaurant includes ".sizeof($_SESSION['arrayHugos'])." item/s. </center><br>";
+                                        echo "<center><h3>Your order from Hugos Burgers restaurant includes ".sizeof($_SESSION['arrayHugos'])." item/s. </h3></center><br>";
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayHugos'] as $name) {
 
@@ -203,28 +239,31 @@
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             if (mysqli_num_rows($result) > 0) {
-                                                echo "<div>$row[itemName] $row[itemPrice] </div> <hr>";
+                                               echo "<form action='basket.php' method='POST'> $row[itemName] $row[itemPrice] <input type='submit' value='+' name='$row[itemId]' id= '$row[itemId]' title='Increase quantity'></form> 
+                                                <form method='POST' action='remove.php'><input type='submit' value='-' name='$row[itemId]' id= '$row[itemId]' title='Remove Item'></form>
+                                                <hr>";
+                                                
                                                 $totalPrice += $row['itemPrice'];
+                                                $totalPrice = (float)$totalPrice;
                                             }
                                              else { echo $name;}
                                         }
-                                       echo "<br><form action='' method=''> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                       echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
+                                       <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
+                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $totalPrice;
+                                        
 
                                     }
-                                //else {echo 'empty';}
+                                //echo 'empty';
                             
                         }
-                        else {echo 'register now';}
+                        else {echo '<center>Register now</center>';}
                     ?>
-                    
-                
                 </div>
-               
                 <div class="clear"></div>
-            
             <div class="push"></div>
             <footer>
-                
                 <nav class="navbar navbar-expand-lg navbar-light ">
                   <div class="collapse navbar-collapse" id="navbarNav">
                    Copyright &copy; 2018 Gabriela Todorova. Hungry.com.mt. All Rights Reserved
@@ -241,10 +280,31 @@
                     </ul>
                   </div>
                 </nav>
-                
             </footer>
         </div>
-        
-        
     </body>
 </html>
+<?php
+foreach($_POST as $name => $content) {
+    if (sizeof($_SESSION['arrayOkurama']) >0) {
+        $_SESSION['arrayOkurama'][] = $name;}
+    
+    if (sizeof($_SESSION['arrayOcean']) >0) {
+        $_SESSION['arrayOcean'][] = $name;}
+    
+    if (sizeof($_SESSION['arrayPizza']) >0) {
+        $_SESSION['arrayPizza'][] = $name;}
+    
+     if (sizeof($_SESSION['arrayPeking']) >0) {
+        $_SESSION['arrayPeking'][] = $name;}
+    
+     if (sizeof($_SESSION['arrayGate']) >0) {
+        $_SESSION['arrayGate'][] = $name;}
+    
+     if (sizeof($_SESSION['arrayHugos']) >0) {
+        $_SESSION['arrayHugos'][] = $name;}
+    
+     if (sizeof($_SESSION['arraySofra']) >0) {
+        $_SESSION['arraySofra'][] = $name;}
+    }
+?>

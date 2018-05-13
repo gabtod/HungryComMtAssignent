@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hungry.com.mt - Main Page</title>
+        <title>Order</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
@@ -28,13 +28,6 @@
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us |</a>
-                      <!--</li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="login.html">Log in | </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="signup.php">Sign up  </a>
-                      </li>-->
                         <?php 
                             if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
                                 
@@ -62,54 +55,63 @@
             <br><br>
             <?php 
                      if (isset($_SESSION['username']) && (isset($_SESSION['password']))) { 
-                         echo " <h1><center>Welcome,", $_SESSION['username'],"  </center></h1>";
+                         echo " <h1><center>Hello,", $_SESSION['username'],"  </center></h1>";
                       }
             
             ?>
            
-            <h1><center>Order your food here: </center></h1>
+            <h1><center>Your order: </center></h1>
             <div id="main">
+                <?php
+                $deliveryType = $_POST['deliveryType'];
+                $deliveryType = (int)$deliveryType;
+                $_SESSION['deliveryType'] =$deliveryType;
+                $time = $_POST['time'];
+                $_SESSION['time'] = $time;
+                $date = date("Y/m/d");
+                //echo $date;
                 
-                <br>
-                <h5><center>Select Your Location</center></h5>
                 
-                <div class="dropdown">
-                  <a class="btn btn-danger btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select Your Location...</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="allLocations.php">All</a>
-                       <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="attard.php">Attard</a>
-                      <a class="dropdown-item" href="hamrun.php">Hamrun</a>
-                      <a class="dropdown-item" href="sliema.php">Sliema</a>
-                      <a class="dropdown-item" href="marsaxlokk.php">Marsaxlokk</a>
-                      <a class="dropdown-item" href="bugibba.php">Bugibba</a>
-                      <a class="dropdown-item" href="stjulians.php">St Julians</a>
-                   
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                $query = "select clientId from client where clientUsername = '".$_SESSION['username']."' ;";
+                //echo "<br>$query<br>";
+                if(mysqli_query($conn, $query)) { 
+                    //echo mysqli_affected_rows($conn);  
+                    $clientId = mysqli_affected_rows($conn);
+                }
+                else
+                    echo "Error: ".mysqli_error($conn);
+
+                
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                $query = "insert into orders (orderTotalPrice, orderTypeId, orderDate, clientId, orderStatus )
+                            values('$_SESSION[totalPrice]', '$_SESSION[deliveryType]', '$date', '$clientId', 'Processing')";
+                //echo "<br>$query<br>";
+                if(mysqli_query($conn, $query)) { 
+                    //echo mysqli_affected_rows($conn);
+                    echo "Your order has been procceeded<br>";
+                    if ($_SESSION['deliveryType']== '1') {
+                        echo "The delivery of your order will arrive at ".$_SESSION['time']." at the address indicated in your profile";
+                    }
+                    if ($_SESSION['deliveryType']== '2') {
+                        echo "You can pick up your order at ".$_SESSION['time']." from the restaurant you chose.";
+                    }
+                    $_SESSION['arrayOkurama'] = array();
+                    $_SESSION['arrayOcean'] = array();
+                    $_SESSION['arrayPeking'] = array();
+                    $_SESSION['arrayPizza'] = array();
+                    $_SESSION['arrayHugos'] = array();
+                    $_SESSION['arraySofra'] = array();
+                    $_SESSION['arrayGate'] = array();                
                     
-                  </div>
-                </div>
+                }
+                else
+                    echo "Error: ".mysqli_error($conn);
+
+		
                 
-                <br><br><br><br>
-                <h5><center>OR </center></h5>
-                <div class="dropdown">
-                  <a class="btn btn-danger btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select The Restaurant...</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                       <a class="dropdown-item" href="allrestaurants.php">All</a>
-                      <!--<div class="dropdown-divider"></div>-->
-                    <a class="dropdown-item" href="oceanBasket.php">Ocean Basket</a>
-                    <a class="dropdown-item" href="okurama.php">Okurama</a>
-                      <a class="dropdown-item" href="gateofindia.php">Gate of India</a>
-                      <a class="dropdown-item" href="pizzahut.php">Pizza Hut</a>
-                      <a class="dropdown-item" href="hugos.php">Hugo's Burgers</a>
-                      <a class="dropdown-item" href="peking.php">Peking</a>
-                      <a class="dropdown-item" href="sofra.php">Sofra Kebap</a>
-                        
-                  </div>
-                    
-                </div>
-               
+                
+                ?>
                 <div class="clear"></div>
             </div>
             <div class="push"></div>

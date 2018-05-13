@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hungry.com.mt - Main Page</title>
+        <title>Bugibba</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
@@ -28,13 +28,6 @@
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us |</a>
-                      <!--</li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="login.html">Log in | </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="signup.php">Sign up  </a>
-                      </li>-->
                         <?php 
                             if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
                                 
@@ -67,48 +60,23 @@
             
             ?>
            
-            <h1><center>Order your food here: </center></h1>
+            <h1><center>Bugibba Restaurants: </center></h1>
             <div id="main">
                 
-                <br>
-                <h5><center>Select Your Location</center></h5>
-                
-                <div class="dropdown">
-                  <a class="btn btn-danger btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select Your Location...</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="allLocations.php">All</a>
-                       <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="attard.php">Attard</a>
-                      <a class="dropdown-item" href="hamrun.php">Hamrun</a>
-                      <a class="dropdown-item" href="sliema.php">Sliema</a>
-                      <a class="dropdown-item" href="marsaxlokk.php">Marsaxlokk</a>
-                      <a class="dropdown-item" href="bugibba.php">Bugibba</a>
-                      <a class="dropdown-item" href="stjulians.php">St Julians</a>
-                   
-                    
-                  </div>
-                </div>
-                
-                <br><br><br><br>
-                <h5><center>OR </center></h5>
-                <div class="dropdown">
-                  <a class="btn btn-danger btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select The Restaurant...</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                       <a class="dropdown-item" href="allrestaurants.php">All</a>
-                      <!--<div class="dropdown-divider"></div>-->
-                    <a class="dropdown-item" href="oceanBasket.php">Ocean Basket</a>
-                    <a class="dropdown-item" href="okurama.php">Okurama</a>
-                      <a class="dropdown-item" href="gateofindia.php">Gate of India</a>
-                      <a class="dropdown-item" href="pizzahut.php">Pizza Hut</a>
-                      <a class="dropdown-item" href="hugos.php">Hugo's Burgers</a>
-                      <a class="dropdown-item" href="peking.php">Peking</a>
-                      <a class="dropdown-item" href="sofra.php">Sofra Kebap</a>
+            <?php
+                 $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                $query = "select rastaurantName from restaurant where localityId='2';";
+                $result = mysqli_query($conn, $query);
+                //$row = mysqli_fetch_assoc($result);
+                   while($row = mysqli_fetch_assoc($result)) {
+                     if ($row['rastaurantName'] == 'Ocean Basket') {
+                        echo "<h2><center><a href='oceanBasket.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr>";}
+                       if ($row['rastaurantName'] == 'Sofra Kebap') {
+                        echo "<h2><center><a href='sofra.php'><font color='black'>$row[rastaurantName]</font><a></center></h2>";}  
                         
-                  </div>
-                    
-                </div>
+                    }
+            ?>
+               
                
                 <div class="clear"></div>
             </div>

@@ -65,19 +65,19 @@
                 while($row = mysqli_fetch_assoc($result)) {
                
                     if ($row['localityName'] == 'Buggiba') {
-                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
+                    echo "<h2><center><a href='bugibba.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
                  if ($row['localityName'] == 'Hamrun') {
-                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
+                    echo "<h2><center><a href='hamrun.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
                   if ($row['localityName'] == 'Attard') {
-                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
+                    echo "<h2><center><a href='attard.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
                    if ($row['localityName'] == 'Sliema') {
-                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
+                    echo "<h2><center><a href='sliema.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
                 
                   if ($row['localityName'] == 'St Julians') {
-                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";
+                    echo "<h2><center><a href='stjulians.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";
                     } else  
                      if ($row['localityName'] == 'Marsaxlokk') {
-                    echo "<h2><center><a href='#'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
+                    echo "<h2><center><a href='marsaxlokk.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
                    
                         //echo "<h2><center>$row[rastaurantName]</center></h2> <br/>";
                     

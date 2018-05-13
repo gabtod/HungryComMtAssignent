@@ -10,6 +10,11 @@
     unset($_SESSION['arraySofra']);
     unset($_SESSION['arrayHugos']);
     unset($_SESSION['arrayGate']);
+    unset($_SEESION['firstnameChange']);
+    unset($_SEESION['surnameChange']);
+    unset($_SEESION['usernameChange']);
+    unset($_SEESION['emailChange']);
+    unset($_SESSION['newPassword']);
     $_SESSION =array();
     header('Location:index.php');
 ?>

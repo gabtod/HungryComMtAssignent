@@ -52,8 +52,8 @@
                   </div>
                 </nav>
             </header>
-            <br><br>
-            <h1><center>Login To Hungry.com.mt </center></h1>            
+            <br><br>        
+            <h1><center>Login To Hungry.com.mt </center></h1>      
             <div id="main">
                 <form action="loginPHPonly.php" method="POST">
                     <br>
@@ -62,9 +62,8 @@
                     <br><br>
                     <label for="password">Password </label><br>
                     <input type="password" id="password" name="password" placeholder="Password..">
-                    <br><br>
-                    
-                    New to Hungry.com.mt? <a href="signup.html">Sign up and start your order immediatrely</a>
+                    <div><a href='changePassword.php'>Forgotten Password</a></div><br><br>
+                    <div>New to Hungry.com.mt? <a href="signup.php">Sign up and start your order immediatrely</a></div>
                     <br><br>
                     <input type="submit" value="Login"><br><br>
                     <input type="reset" value="Reset"><br><br>
