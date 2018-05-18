@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2018 at 01:40 PM
--- Server version: 10.1.22-MariaDB
--- PHP Version: 7.1.4
+-- Generation Time: May 17, 2018 at 06:41 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -93,7 +93,7 @@ CREATE TABLE `client` (
 
 INSERT INTO `client` (`clientId`, `clientName`, `clientSurname`, `clientUsername`, `clientEmail`, `clientPhoneNumber`, `clientAddress`, `clientPassword`) VALUES
 (1, 'Gabriela', 'Todorova', 'gabi', 'gabriela.todorova.a100822@mcast.edu.mt', NULL, 'Qawra', 'gabrielatodorova'),
-(2, 'Ana', 'Abela', 'ana', 'ana@gmail.com', '99998888', 'Valletta, Malta', 'ana'),
+(2, 'Ana', 'Abela', 'ana', 'ana@gmail.com', '99998888', 'Valletta, Malta', 'ana0'),
 (3, 'Gabriela', 'Todorova', 'gab', 'gabriela.todorova.a100822@mcast.edu.mt', '11222233', 'Qawra', 'gab');
 
 -- --------------------------------------------------------
@@ -239,11 +239,27 @@ CREATE TABLE `order-item` (
 
 CREATE TABLE `orders` (
   `orderId` int(11) NOT NULL,
-  `orderDescription` varchar(300) DEFAULT NULL,
+  `orderTotalPrice` varchar(100) DEFAULT NULL,
   `clientId` int(11) NOT NULL,
   `orderTypeId` int(11) NOT NULL,
-  `orderDate` int(11) NOT NULL
+  `orderDate` varchar(100) NOT NULL,
+  `orderStatus` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`orderId`, `orderTotalPrice`, `clientId`, `orderTypeId`, `orderDate`, `orderStatus`) VALUES
+(9, '13.9', 1, 2, '2018/05/13', 'Processing'),
+(10, '13.9', 1, 2, '2018/05/13', 'Processing'),
+(11, '13.9', 1, 1, '2018/05/13', 'Processing'),
+(12, '13.9', 1, 1, '2018/05/13', 'Processing'),
+(13, '13.9', 1, 1, '2018/05/13', 'Processing'),
+(14, '13.9', 1, 1, '2018/05/13', 'Processing'),
+(15, '13.9', 1, 1, '2018/05/13', 'Processing'),
+(16, '11.45', 1, 2, '2018/05/13', 'Processing'),
+(17, '18.9', 1, 2, '2018/05/13', 'Processing');
 
 -- --------------------------------------------------------
 
@@ -530,36 +546,43 @@ ALTER TABLE `restaurantitem`
 --
 ALTER TABLE `category`
   MODIFY `categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
   MODIFY `clientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
   MODIFY `itemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+
 --
 -- AUTO_INCREMENT for table `locality`
 --
 ALTER TABLE `locality`
   MODIFY `localityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT for table `ordertype`
 --
 ALTER TABLE `ordertype`
   MODIFY `orderTypeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
   MODIFY `restaurantId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- Constraints for dumped tables
 --

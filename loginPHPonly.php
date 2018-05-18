@@ -28,7 +28,8 @@
                 header('Location: index.php');
             }
             else {
-               echo "not logged";
+               //echo "not logged";
+                header('Location: login.php');
             }
     }
 

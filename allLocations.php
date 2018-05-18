@@ -64,7 +64,7 @@
                 $result = mysqli_query($conn, $query);
                 while($row = mysqli_fetch_assoc($result)) {
                
-                    if ($row['localityName'] == 'Buggiba') {
+                    if ($row['localityName'] == 'Bugibba') {
                     echo "<h2><center><a href='bugibba.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
                  if ($row['localityName'] == 'Hamrun') {
                     echo "<h2><center><a href='hamrun.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";} 
@@ -79,7 +79,7 @@
                      if ($row['localityName'] == 'Marsaxlokk') {
                     echo "<h2><center><a href='marsaxlokk.php'><font color='black'>$row[localityName]</font><a></center></h2> <hr/>";}
                    
-                        //echo "<h2><center>$row[rastaurantName]</center></h2> <br/>";
+                        //echo $result;
                     
                         //echo "<h2><center>$row[rastaurantName]</center></h2> <br/>";
                 }

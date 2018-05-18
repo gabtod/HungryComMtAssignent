@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php
-        if (isset($_POST['firstnameChange'])) {
+       function ChangePassword(){ if (isset($_POST['firstnameChange'])) {
         
 		$firstnameChange = $_POST['firstnameChange'];
         $_SESSION['firstnameChange'] =$firstnameChange;
@@ -33,17 +33,16 @@
                     
 			
 		
-            } else {echo "Newpassword and newpassword1 are not equal";}
+            } else {  header('Location: changePassword.php');}
             
              
             
 		} else {
-            echo "Error to submit the credentials";
+             header('Location: changePassword.php');
         }
+    }
 
-        
-            
-		
+ChangePassword();
 
 
 ?>

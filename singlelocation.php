@@ -79,7 +79,7 @@
                 }
                     */
                 
-                 $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
+                 $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
                 /*$query = "select itemId from restaurantitem where restaurantIId=1 ";*/
                 $query = "select restaurant.restaurantName,  locality.localityName from locality left join restaurant on restaurant.localityId = locality.localityId;";
                 $result =mysqli_query($conn,$query);

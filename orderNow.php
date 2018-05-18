@@ -91,10 +91,10 @@
                     //echo mysqli_affected_rows($conn);
                     echo "Your order has been procceeded<br>";
                     if ($_SESSION['deliveryType']== '1') {
-                        echo "The delivery of your order will arrive at ".$_SESSION['time']." at the address indicated in your profile";
+                        echo "<form action='sendThanks.php' method='POST'>The delivery of your order will arrive at ".$_SESSION['time']." at the address indicated in your profile</form>";
                     }
                     if ($_SESSION['deliveryType']== '2') {
-                        echo "You can pick up your order at ".$_SESSION['time']." from the restaurant you chose.";
+                        echo "<form action='sendThanks.php' method='POST'>You can pick up your order at ".$_SESSION['time']." from the restaurant you chose.</form>";
                     }
                     $_SESSION['arrayOkurama'] = array();
                     $_SESSION['arrayOcean'] = array();
@@ -106,11 +106,9 @@
                     
                 }
                 else
-                    echo "Error: ".mysqli_error($conn);
-
-		
-                
-                
+                    echo "Error: ".mysqli_error($conn);  
+            
+                	                
                 ?>
                 <div class="clear"></div>
             </div>
