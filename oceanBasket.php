@@ -65,7 +65,7 @@
             <div id="main">
               
                   <?php
-                $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');
                 $query = "select restaurantitem.itemId, item.itemName, item.itemDescription, item.itemPrice from item left join restaurantitem on item.itemId = restaurantitem.itemId
                 where restaurantitem.restaurantIId=1";
                 $result =mysqli_query($conn,$query);

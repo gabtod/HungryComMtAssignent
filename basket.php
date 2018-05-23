@@ -84,7 +84,7 @@
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayOkurama'] as $name) {
 
-                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                                             $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
@@ -109,7 +109,7 @@
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayOcean'] as $name) {
 
-                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                                             $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
@@ -134,7 +134,7 @@
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayPizza'] as $name) {
 
-                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                                             $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
@@ -159,7 +159,7 @@
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayPeking'] as $name) {
 
-                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                                             $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
@@ -184,7 +184,7 @@
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arraySofra'] as $name) {
 
-                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                                             $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
@@ -209,7 +209,7 @@
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayGate'] as $name) {
 
-                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                                             $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);
@@ -234,7 +234,7 @@
                                         $totalPrice = 0;      
                                         foreach ($_SESSION['arrayHugos'] as $name) {
 
-                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                                            $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                                             $query = "select itemId, itemName, itemPrice from item where  itemId='".$name."';";
                                             $result = mysqli_query($conn, $query);
                                             $row = mysqli_fetch_assoc($result);

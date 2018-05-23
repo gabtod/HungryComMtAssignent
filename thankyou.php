@@ -24,7 +24,7 @@
                         <a class="nav-link" href="index.php">Home | </a>
                       </li>
                       <li class="nav-item ">
-                        <a class="nav-link" href="aboutus.html">About Us |</a>
+                        <a class="nav-link" href="aboutus.php">About Us |</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us |</a>
@@ -71,10 +71,10 @@
                    Copyright &copy; 2018 Gabriela Todorova. Hungry.com.mt. All Rights Reserved
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item ">
-                        <a class="nav-link" href="help.html">Help | </a>
+                        <a class="nav-link" href="help.php">Help | </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="faq.html"> FAQ |</a>
+                        <a class="nav-link" href="faq.php"> FAQ |</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="contactus.php">Contact Us </a>

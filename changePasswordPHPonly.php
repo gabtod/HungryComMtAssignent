@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php
-       function ChangePassword(){ if (isset($_POST['firstnameChange'])) {
+        function ChangePassword() {if (isset($_POST['firstnameChange'])) {
         
 		$firstnameChange = $_POST['firstnameChange'];
         $_SESSION['firstnameChange'] =$firstnameChange;
@@ -20,29 +20,29 @@
         /*header("Location: changePassword1.php");*/
 		
         if ($_POST['newPassword'] == $_POST['newPassword1']) {
-            $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+            $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
             $query = "update client SET clientPassword = '".$_SESSION['newPassword']."' where  clientUsername='".$_SESSION['usernameChange']."' and clientEmail = '".$_SESSION['emailChange']."' and clientName = '".$_SESSION['firstnameChange']."' and clientSurname = '".$_SESSION['surnameChange']."';";
 
             
             if(mysqli_query($conn, $query)) { 
-            /*echo mysqli_affected_rows($conn);*/
-                /*echo "<script type='text/javascript'>alert('$message');</script>";*/
+            
                 header('Location: changedPassword.php');
                 
             }else {echo "Error: ".mysqli_error($conn);}
                     
 			
 		
-            } else {  header('Location: changePassword.php');}
+            } else {echo "Newpassword and newpassword1 are not equal";}
             
              
             
 		} else {
-             header('Location: changePassword.php');
+            echo "Error to submit the credentials";
         }
-    }
+   }
 
 ChangePassword();
+		
 
 
 ?>

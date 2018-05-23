@@ -110,7 +110,7 @@
         $address = $_POST['address'];
 		
         //Connect to db
-        $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+        $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
         $query = "insert into client (clientName, clientSurname, clientUsername, clientEmail, clientPhoneNumber, clientAddress, clientPassword)
                     values('$firstname', '$surname', '$username', '$email', '$phone', '$address', '$password')";
         echo "<br>$query<br>";

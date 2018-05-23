@@ -72,7 +72,7 @@
                 //echo $date;
                 
                 
-                $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                 $query = "select clientId from client where clientUsername = '".$_SESSION['username']."' ;";
                 //echo "<br>$query<br>";
                 if(mysqli_query($conn, $query)) { 
@@ -83,7 +83,7 @@
                     echo "Error: ".mysqli_error($conn);
 
                 
-                $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                 $query = "insert into orders (orderTotalPrice, orderTypeId, orderDate, clientId, orderStatus )
                             values('$_SESSION[totalPrice]', '$_SESSION[deliveryType]', '$date', '$clientId', 'Processing')";
                 //echo "<br>$query<br>";
@@ -91,10 +91,10 @@
                     //echo mysqli_affected_rows($conn);
                     echo "Your order has been procceeded<br>";
                     if ($_SESSION['deliveryType']== '1') {
-                        echo "<form action='sendThanks.php' method='POST'>The delivery of your order will arrive at ".$_SESSION['time']." at the address indicated in your profile</form>";
+                        echo "The delivery of your order will arrive at ".$_SESSION['time']." at the address indicated in your profile";
                     }
                     if ($_SESSION['deliveryType']== '2') {
-                        echo "<form action='sendThanks.php' method='POST'>You can pick up your order at ".$_SESSION['time']." from the restaurant you chose.</form>";
+                        echo "You can pick up your order at ".$_SESSION['time']." from the restaurant you chose.";
                     }
                     $_SESSION['arrayOkurama'] = array();
                     $_SESSION['arrayOcean'] = array();
@@ -106,9 +106,11 @@
                     
                 }
                 else
-                    echo "Error: ".mysqli_error($conn);  
-            
-                	                
+                    echo "Error: ".mysqli_error($conn);
+
+		
+                
+                
                 ?>
                 <div class="clear"></div>
             </div>

@@ -55,7 +55,7 @@
             <br><br>
             <h1><center>Changed Password </center></h1>            
             <div id="main">
-                <center>Your password has been changed.</center>
+                <center>Your password has been changed successfully.</center>
                 <div class="clear"></div>
             </div>
             <div class="push"></div>

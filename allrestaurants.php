@@ -59,7 +59,7 @@
             <h1><center>All Restaurants: </center></h1>
             <div id="main">
                <?php    
-                $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                 $query = "select rastaurantName from restaurant ";
                 $result = mysqli_query($conn, $query);
                 //echo $result;

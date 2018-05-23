@@ -10,7 +10,7 @@
         }
        
 		
-        $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+        $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
         $query = "select clientUsername, clientPassword, clientName, clientSurname, clientEmail from client where  clientUsername='".$username."' and clientPassword = '".$password."';";
         echo "<br>$query<br>";
         $result = mysqli_query($conn, $query);
@@ -28,8 +28,7 @@
                 header('Location: index.php');
             }
             else {
-               //echo "not logged";
-                header('Location: login.php');
+               echo "not logged";
             }
     }
 

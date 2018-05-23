@@ -64,7 +64,7 @@
             <div id="main">
                 
             <?php
-                 $conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
+                 $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                 $query = "select rastaurantName from restaurant where  localityId='6';";
                 $result = mysqli_query($conn, $query);
                 $row = mysqli_fetch_assoc($result);
