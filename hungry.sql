@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 17, 2018 at 06:41 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Host: 127.0.0.1:3307
+-- Generation Time: May 24, 2018 at 11:51 AM
+-- Server version: 10.1.22-MariaDB
+-- PHP Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -94,7 +94,9 @@ CREATE TABLE `client` (
 INSERT INTO `client` (`clientId`, `clientName`, `clientSurname`, `clientUsername`, `clientEmail`, `clientPhoneNumber`, `clientAddress`, `clientPassword`) VALUES
 (1, 'Gabriela', 'Todorova', 'gabi', 'gabriela.todorova.a100822@mcast.edu.mt', NULL, 'Qawra', 'gabrielatodorova'),
 (2, 'Ana', 'Abela', 'ana', 'ana@gmail.com', '99998888', 'Valletta, Malta', 'ana0'),
-(3, 'Gabriela', 'Todorova', 'gab', 'gabriela.todorova.a100822@mcast.edu.mt', '11222233', 'Qawra', 'gab');
+(3, 'Gabriela', 'Todorova', 'gab', 'gabriela.todorova.a100822@mcast.edu.mt', '11222233', 'Qawra', 'gab'),
+(4, 'tyrone', 'hoare', 'talestyrone', 'tyrone.hoare@gmail.com', '79230398', '22, BLACKTAIL FLATS, 2, TRIQ IL KAHLI', 'tyronethebest'),
+(5, 'tyrone', 'hoare', 'talestyrone2', 'tyrone.hoare.a100833@mcast.edu.mt', '79230399', 'stuff', 'taurean1994');
 
 -- --------------------------------------------------------
 
@@ -259,7 +261,20 @@ INSERT INTO `orders` (`orderId`, `orderTotalPrice`, `clientId`, `orderTypeId`, `
 (14, '13.9', 1, 1, '2018/05/13', 'Processing'),
 (15, '13.9', 1, 1, '2018/05/13', 'Processing'),
 (16, '11.45', 1, 2, '2018/05/13', 'Processing'),
-(17, '18.9', 1, 2, '2018/05/13', 'Processing');
+(17, '18.9', 1, 2, '2018/05/13', 'Processing'),
+(18, '15', 1, 2, '2018/05/23', 'Processing'),
+(21, '15.8', 4, 1, '2018/05/24', 'Processing'),
+(22, '11.5', 4, 1, '2018/05/24', 'Processing'),
+(23, '11.5', 4, 1, '2018/05/24', 'Processing'),
+(24, '4.15', 4, 1, '2018/05/24', 'Processing'),
+(25, '11.45', 4, 1, '2018/05/24', 'Processing'),
+(26, '26', 4, 1, '2018/05/24', 'Processing'),
+(27, '14.75', 4, 1, '2018/05/24', 'Processing'),
+(28, '22', 4, 1, '2018/05/24', 'Processing'),
+(29, '11.1', 4, 1, '2018/05/24', 'Processing'),
+(30, '24.8', 4, 1, '2018/05/24', 'Processing'),
+(31, '9.9', 4, 1, '2018/05/24', 'Processing'),
+(32, '11.95', 4, 1, '2018/05/24', 'Processing');
 
 -- --------------------------------------------------------
 
@@ -303,7 +318,7 @@ INSERT INTO `restaurant` (`restaurantId`, `rastaurantName`, `localityId`) VALUES
 (4, 'Gate of India', 9),
 (5, 'Peking', 4),
 (6, 'Okurama', 6),
-(7, 'Sofra Kebap', 2);
+(7, 'Sofra Kebab', 2);
 
 -- --------------------------------------------------------
 
@@ -546,43 +561,36 @@ ALTER TABLE `restaurantitem`
 --
 ALTER TABLE `category`
   MODIFY `categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `clientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `clientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
   MODIFY `itemId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
-
 --
 -- AUTO_INCREMENT for table `locality`
 --
 ALTER TABLE `locality`
   MODIFY `localityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `ordertype`
 --
 ALTER TABLE `ordertype`
   MODIFY `orderTypeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
   MODIFY `restaurantId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- Constraints for dumped tables
 --

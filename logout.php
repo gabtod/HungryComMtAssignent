@@ -1,6 +1,7 @@
 <?php 
     session_start();
 
+    unset($_SESSION['id']);
     unset($_SEESION['username']);
     unset($_SEESION['password']);
     unset($_SESSION['arrayOkurama']);

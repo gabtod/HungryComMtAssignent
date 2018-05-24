@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sofra Kebap Menu</title>
+        <title>Sofra Kebab Menu</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
@@ -75,7 +75,7 @@
                 }                
                 while($row = mysqli_fetch_assoc($result)) {
                     
-                    echo "<form method='POST' action='sofra.php'><a href='#'><b>$row[itemName] </b></a> Price &#x20AC; $row[itemPrice] <br>";
+                    echo "<form method='POST' action='sofra.php'><b>$row[itemName] </b> Price &#x20AC; $row[itemPrice] <br>";
                     if (isset($_SESSION['username']) && (isset($_SESSION['password']))) { 
                           echo "<i>$row[itemDescription]</i> <br> <input type='submit' name='$row[itemId]' id='$row[itemId]' value='Add To Basket'><hr/></form> ";
                       } else {

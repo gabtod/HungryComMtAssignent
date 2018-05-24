@@ -78,7 +78,7 @@
                     } else  
                      if ($row['rastaurantName'] == 'Okurama') {
                     echo "<h2><center><a href='okurama.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
-                    if ($row['rastaurantName'] == 'Sofra Kebap') {
+                    if ($row['rastaurantName'] == 'Sofra Kebab') {
                     echo "<h2><center><a href='sofra.php'><font color='black'>$row[rastaurantName]</font><a></center></h2> <hr/>";}
                     /*else {
                         echo "something went wrong";

@@ -68,17 +68,6 @@
                 ?>
 
                  <?php      
-                /*$conn = mysqli_connect('localhost', 'root','','hungry', '3306') or die('Cannot connect to DB');	 
-                $query = "select locality.localityName, restaurant.restaurantId FROM locality
-                           FULL OUTER JOIN restaurant ON locality.localityId = restaurant.localityId;";
-                
-                $result = mysqli_query($conn, $query);
-                echo $result;
-                while($row = mysqli_fetch_assoc($result)) {
-                echo "<h2><center>$row[localityName] $row[restaurantId]</center></h2> <br/>";
-                }
-                    */
-                
                  $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                 /*$query = "select itemId from restaurantitem where restaurantIId=1 ";*/
                 $query = "select restaurant.restaurantName,  locality.localityName from locality left join restaurant on restaurant.localityId = locality.localityId;";

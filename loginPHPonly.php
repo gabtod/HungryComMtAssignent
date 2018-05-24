@@ -11,12 +11,13 @@
        
 		
         $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
-        $query = "select clientUsername, clientPassword, clientName, clientSurname, clientEmail from client where  clientUsername='".$username."' and clientPassword = '".$password."';";
+        $query = "select clientId, clientUsername, clientPassword, clientName, clientSurname, clientEmail from client where  clientUsername='".$username."' and clientPassword = '".$password."';";
         echo "<br>$query<br>";
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_assoc($result);
         
             if (mysqli_num_rows($result) > 0) {
+                $_SESSION['id'] = $row['clientId'];
                 $_SESSION['username'] =$username;
                 $_SESSION['password'] = $password;
                 //$name = $row['clientName'];

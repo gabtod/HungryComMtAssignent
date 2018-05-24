@@ -33,7 +33,7 @@
                             if (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
                                 
                                 echo "<li class='nav-item'>
-                        <a class='nav-link' href='login.php'> Your Basket | </a>
+                        <a class='nav-link' href='basket.php'> Your Basket | </a>
                       </li>
                       <li class='nav-item'>
                         <a class='nav-link' href='basket.php'> Log out  </a>
@@ -75,7 +75,7 @@
                 }                
                 while($row = mysqli_fetch_assoc($result)) {
                     
-                    echo "<form method='POST' action='gateofindia.php'><a href='#'><b>$row[itemName] </b></a> Price &#x20AC; $row[itemPrice] <br>";
+                    echo "<form method='POST' action='gateofindia.php'><b>$row[itemName] </b> Price &#x20AC; $row[itemPrice] <br>";
                     if (isset($_SESSION['username']) && (isset($_SESSION['password']))) { 
                           echo "<i>$row[itemDescription]</i> <br> <input type='submit' name='$row[itemId]' id='$row[itemId]' value='Add To Basket'><hr/></form> ";
                       } else {

@@ -81,7 +81,9 @@
                                 
            /*Okurama*/                  if (sizeof($_SESSION['arrayOkurama']) >0) {
                                         echo "<center><h3>Your order from Okurama restaurant includes ".sizeof($_SESSION['arrayOkurama'])." item/s. </h3></center><br>";
-                                        $totalPrice = 0;      
+                                        $totalPrice = 0;  
+                                        $deliveryFee = 0;
+                                        $finalPrice = 0;
                                         foreach ($_SESSION['arrayOkurama'] as $name) {
 
                                             $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
@@ -94,19 +96,29 @@
                                                 <hr>";
                                                 
                                                 $totalPrice += $row['itemPrice'];
+                                                if ($totalPrice < 20) {
+                                                    $deliveryFee = 4.95;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
+                                                if ($totalPrice >=20) {
+                                                    $deliveryFee=0;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
                                             }
                                              else { echo $name;}
                                         }
                                        echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
                                        <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
-                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
-                                        $_SESSION['totalPrice'] = $totalPrice;
+                                        <br> <h2><center>Price without delivery fee: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center> <br> <h2><center>Delivery Fee: ". number_format((float)$deliveryFee, 2, '.', '')." </center></h2> <br> <h2><center>Total Price: ". number_format((float)$finalPrice, 2, '.', '')."</center></h2><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $finalPrice;
 
                                     }
                                 
         /*OceanBasket*/                 if (sizeof($_SESSION['arrayOcean']) >0) {
                                         echo "<center><h3>Your order from Ocean Basket restaurant includes ".sizeof($_SESSION['arrayOcean'])." item/s. </h3></center><br>";
-                                        $totalPrice = 0;      
+                                        $totalPrice = 0;   
+                                        $deliveryFee = 0;
+                                        $finalPrice = 0;
                                         foreach ($_SESSION['arrayOcean'] as $name) {
 
                                             $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
@@ -119,19 +131,29 @@
                                                 <hr>";
                                                 
                                                 $totalPrice += $row['itemPrice'];
+                                                if ($totalPrice < 20) {
+                                                    $deliveryFee = 4.95;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
+                                                if ($totalPrice >=20) {
+                                                    $deliveryFee=0;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
                                             }
                                              else { echo $name;}
                                         }
                                        echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
                                        <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
-                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
-                                        $_SESSION['totalPrice'] = $totalPrice;
+                                         <br> <h2><center>Price without delivery fee: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center> <br> <h2><center>Delivery Fee: ". number_format((float)$deliveryFee, 2, '.', '')." </center></h2> <br> <h2><center>Total Price: ". number_format((float)$finalPrice, 2, '.', '')."</center></h2><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $finalPrice;
 
                                     }
                                 
        /*Pizza Hut*/                    if (sizeof($_SESSION['arrayPizza']) >0) {
                                         echo "<center><h3>Your order from Pizza Hut restaurant includes ".sizeof($_SESSION['arrayPizza'])." item/s.</h3> </center><br>";
-                                        $totalPrice = 0;      
+                                        $totalPrice = 0;   
+                                        $deliveryFee = 0;
+                                        $finalPrice = 0;
                                         foreach ($_SESSION['arrayPizza'] as $name) {
 
                                             $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
@@ -144,19 +166,28 @@
                                                 <hr>";
                                                 
                                                 $totalPrice += $row['itemPrice'];
+                                                if ($totalPrice < 20) {
+                                                    $deliveryFee = 4.95;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
+                                                if ($totalPrice >=20) {
+                                                    $deliveryFee=0;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
                                             }
                                              else { echo $name;}
                                         }
                                        echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
                                        <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
-                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
-                                        $_SESSION['totalPrice'] = $totalPrice;
-
+                                         <br> <h2><center>Price without delivery fee: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center> <br> <h2><center>Delivery Fee: ". number_format((float)$deliveryFee, 2, '.', '')." </center></h2> <br> <h2><center>Total Price: ". number_format((float)$finalPrice, 2, '.', '')."</center></h2><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $finalPrice;
                                     }
                                 
       /*Peking*/                        if (sizeof($_SESSION['arrayPeking']) >0) {
                                         echo "<center><h3>Your order from Peking restaurant includes ".sizeof($_SESSION['arrayPeking'])." item/s. </h3></center><br>";
-                                        $totalPrice = 0;      
+                                        $totalPrice = 0;  
+                                        $deliveryFee = 0;
+                                        $finalPrice = 0;
                                         foreach ($_SESSION['arrayPeking'] as $name) {
 
                                             $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
@@ -169,19 +200,29 @@
                                                 <hr>";
                                                 
                                                 $totalPrice += $row['itemPrice'];
+                                                if ($totalPrice < 20) {
+                                                    $deliveryFee = 4.95;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
+                                                if ($totalPrice >=20) {
+                                                    $deliveryFee=0;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
                                             }
                                              else { echo $name;}
                                         }
                                        echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
                                        <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
-                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
-                                        $_SESSION['totalPrice'] = $totalPrice;
+                                        <br> <h2><center>Price without delivery fee: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center> <br> <h2><center>Delivery Fee: ". number_format((float)$deliveryFee, 2, '.', '')." </center></h2> <br> <h2><center>Total Price: ". number_format((float)$finalPrice, 2, '.', '')."</center></h2><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $finalPrice;
 
                                     }
                                 
        /*Sofra*/                        if (sizeof($_SESSION['arraySofra']) >0) {
-                                        echo "<h3><center>Your order from Sofra Kebap restaurant includes ".sizeof($_SESSION['arraySofra'])." item/s. </h3></center><br>";
+                                        echo "<h3><center>Your order from Sofra Kebab restaurant includes ".sizeof($_SESSION['arraySofra'])." item/s. </h3></center><br>";
                                         $totalPrice = 0;      
+                                        $deliveryFee = 0;
+                                        $finalPrice = 0;
                                         foreach ($_SESSION['arraySofra'] as $name) {
 
                                             $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
@@ -194,19 +235,29 @@
                                                 <hr>";
                                                 
                                                 $totalPrice += $row['itemPrice'];
+                                                if ($totalPrice < 20) {
+                                                    $deliveryFee = 4.95;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
+                                                if ($totalPrice >=20) {
+                                                    $deliveryFee=0;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
                                             }
                                              else { echo $name;}
                                         }
                                        echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
                                        <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
-                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
-                                        $_SESSION['totalPrice'] = $totalPrice;
+                                        <br> <h2><center>Price without delivery fee: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center> <br> <h2><center>Delivery Fee: ". number_format((float)$deliveryFee, 2, '.', '')." </center></h2> <br> <h2><center>Total Price: ". number_format((float)$finalPrice, 2, '.', '')."</center></h2><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $finalPrice;
 
                                     }
                                 
         /*Gate*/                        if (sizeof($_SESSION['arrayGate']) >0) {
                                         echo "<center><h3>Your order from Gate of India restaurant includes ".sizeof($_SESSION['arrayGate'])." item/s. </h3></center><br>";
-                                        $totalPrice = 0;      
+                                        $totalPrice = 0;    
+                                        $deliveryFee = 0;
+                                        $finalPrice = 0;
                                         foreach ($_SESSION['arrayGate'] as $name) {
 
                                             $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
@@ -219,19 +270,29 @@
                                                 <hr>";
                                                 
                                                 $totalPrice += $row['itemPrice'];
+                                                if ($totalPrice < 20) {
+                                                    $deliveryFee = 4.95;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
+                                                if ($totalPrice >=20) {
+                                                    $deliveryFee=0;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
                                             }
                                              else { echo $name;}
                                         }
                                        echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
                                        <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
-                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
-                                        $_SESSION['totalPrice'] = $totalPrice;
+                                        <br> <h2><center>Price without delivery fee: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center> <br> <h2><center>Delivery Fee: ". number_format((float)$deliveryFee, 2, '.', '')." </center></h2> <br> <h2><center>Total Price: ". number_format((float)$finalPrice, 2, '.', '')."</center></h2><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $finalPrice;
 
                                     }
                                 
        /*Hugos*/                        if (sizeof($_SESSION['arrayHugos']) >0) {
                                         echo "<center><h3>Your order from Hugos Burgers restaurant includes ".sizeof($_SESSION['arrayHugos'])." item/s. </h3></center><br>";
-                                        $totalPrice = 0;      
+                                        $totalPrice = 0;    
+                                        $deliveryFee = 0;
+                                        $finalPrice = 0;
                                         foreach ($_SESSION['arrayHugos'] as $name) {
 
                                             $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
@@ -244,14 +305,22 @@
                                                 <hr>";
                                                 
                                                 $totalPrice += $row['itemPrice'];
-                                                $totalPrice = (float)$totalPrice;
+                                                
+                                                if ($totalPrice < 20) {
+                                                    $deliveryFee = 4.95;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
+                                                if ($totalPrice >=20) {
+                                                    $deliveryFee=0;
+                                                    $finalPrice = $totalPrice + $deliveryFee;
+                                                }
                                             }
                                              else { echo $name;}
                                         }
                                        echo "<form action='orderNow.php' method='POST'><h4>Some other details:</h4><label><u>Delivery type:</u> </label> <br><input type='radio' name='deliveryType' value='2' checked> Pick-up
                                        <input type='radio' name='deliveryType' value='1' checked> Delivery <br><br> <label><u>Time To Be Picked-up or Deliver:</u></label> <br><input type='time' name='time' id='time' min='11:00' max='23:00' value='23:00' required> <br><br> <label><u>Payment method: </u></label><br> Cash on delivery/pick-up. <br>
-                                        <br> <h2><center>Total price of this order: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center><input type='submit' value='Order now'<br></form> <br><br> ";
-                                        $_SESSION['totalPrice'] = $totalPrice;
+                                         <br> <h2><center>Price without delivery fee: ". number_format((float)$totalPrice, 2, '.', '')."</h2></center> <br> <h2><center>Delivery Fee: ". number_format((float)$deliveryFee, 2, '.', '')." </center></h2> <br> <h2><center>Total Price: ". number_format((float)$finalPrice, 2, '.', '')."</center></h2><input type='submit' value='Order now'<br></form> <br><br> ";
+                                        $_SESSION['totalPrice'] = $finalPrice;
                                         
 
                                     }

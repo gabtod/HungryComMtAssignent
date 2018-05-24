@@ -69,19 +69,9 @@
                 $time = $_POST['time'];
                 $_SESSION['time'] = $time;
                 $date = date("Y/m/d");
+                $clientId = $_SESSION['id'];
                 //echo $date;
                 
-                
-                $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
-                $query = "select clientId from client where clientUsername = '".$_SESSION['username']."' ;";
-                //echo "<br>$query<br>";
-                if(mysqli_query($conn, $query)) { 
-                    //echo mysqli_affected_rows($conn);  
-                    $clientId = mysqli_affected_rows($conn);
-                }
-                else
-                    echo "Error: ".mysqli_error($conn);
-
                 
                 $conn = mysqli_connect('localhost', 'root','','hungry', '3307') or die('Cannot connect to DB');	 
                 $query = "insert into orders (orderTotalPrice, orderTypeId, orderDate, clientId, orderStatus )
